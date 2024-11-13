@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="第三章 容器请你为下列代码添加详细的中文注释，并在代码结尾的注释中给出一个测试案例以及对应的标准答案以及代码输出的答案 vector12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455#include&lt;iostream&gt;    &#x2F;&#x2F; 引入">
+<meta property="og:type" content="article">
+<meta property="og:title" content="day3 容器">
+<meta property="og:url" content="http://example.com/2024/11/13/day3%20%E5%AE%B9%E5%99%A8/index.html">
+<meta property="og:site_name" content="cozy">
+<meta property="og:description" content="第三章 容器请你为下列代码添加详细的中文注释，并在代码结尾的注释中给出一个测试案例以及对应的标准答案以及代码输出的答案 vector12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455#include&lt;iostream&gt;    &#x2F;&#x2F; 引入">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-11-13T06:44:24.714Z">
+<meta property="article:modified_time" content="2024-11-13T06:45:42.199Z">
+<meta property="article:author" content="cozy">
+<meta property="article:tag" content="机试">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>day3 容器</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/hughnwj">项目</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2024/11/12/day2%20%E5%AD%97%E7%AC%A6%E4%B8%B2/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2024/11/13/day3%20%E5%AE%B9%E5%99%A8/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2024/11/13/day3%20%E5%AE%B9%E5%99%A8/&text=day3 容器"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2024/11/13/day3%20%E5%AE%B9%E5%99%A8/&title=day3 容器"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2024/11/13/day3%20%E5%AE%B9%E5%99%A8/&is_video=false&description=day3 容器"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=day3 容器&body=Check out this article: http://example.com/2024/11/13/day3%20%E5%AE%B9%E5%99%A8/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2024/11/13/day3%20%E5%AE%B9%E5%99%A8/&title=day3 容器"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2024/11/13/day3%20%E5%AE%B9%E5%99%A8/&title=day3 容器"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2024/11/13/day3%20%E5%AE%B9%E5%99%A8/&title=day3 容器"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2024/11/13/day3%20%E5%AE%B9%E5%99%A8/&title=day3 容器"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2024/11/13/day3%20%E5%AE%B9%E5%99%A8/&name=day3 容器&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2024/11/13/day3%20%E5%AE%B9%E5%99%A8/&t=day3 容器"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%AE%B9%E5%99%A8"><span class="toc-number">1.</span> <span class="toc-text">第三章 容器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#vector"><span class="toc-number">1.1.</span> <span class="toc-text">vector</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#set"><span class="toc-number">1.2.</span> <span class="toc-text">set</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#map"><span class="toc-number">1.3.</span> <span class="toc-text">map</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#stack"><span class="toc-number">1.4.</span> <span class="toc-text">stack</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#queue"><span class="toc-number">1.5.</span> <span class="toc-text">queue</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#unordered-map-unordered-set"><span class="toc-number">1.6.</span> <span class="toc-text">unordered_map &amp; unordered_set</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bitset"><span class="toc-number">1.7.</span> <span class="toc-text">bitset</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        day3 容器
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">cozy</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2024-11-13T06:44:24.714Z" class="dt-published" itemprop="datePublished">2024-11-13</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/%E6%9C%BA%E8%AF%95/" rel="tag">机试</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 id="第三章-容器"><a href="#第三章-容器" class="headerlink" title="第三章 容器"></a>第三章 容器</h1><p><code>请你为下列代码添加详细的中文注释，并在代码结尾的注释中给出一个测试案例以及对应的标准答案以及代码输出的答案</code></p>
+<h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;    // 引入标准输入输出流库</span><br><span class="line">#include&lt;vector&gt;      // 引入向量容器库</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    // 创建一个空的整型向量v</span><br><span class="line">    vector&lt;int&gt; v;</span><br><span class="line">    </span><br><span class="line">    // 调整v的大小为10，但不指定初始值，默认会填充为0</span><br><span class="line">    v.resize(10);</span><br><span class="line">    // 输出v的大小，预期为10</span><br><span class="line">    cout &lt;&lt; v.size() &lt;&lt; endl;  // 预期输出10</span><br><span class="line">    </span><br><span class="line">    // 创建一个大小为10的整型向量v1，元素默认初始化为0</span><br><span class="line">    vector&lt;int&gt; v1(10);</span><br><span class="line">    // 输出v1的大小，预期为10</span><br><span class="line">    cout &lt;&lt; v1.size() &lt;&lt; endl;  // 预期输出10</span><br><span class="line">    </span><br><span class="line">    // 创建一个大小为10的整型向量v2，所有元素初始化为1</span><br><span class="line">    vector&lt;int&gt; v2(10, 1);</span><br><span class="line">    // 向v2中添加元素2</span><br><span class="line">    v2.push_back(2);</span><br><span class="line">    // 遍历并输出v2中的所有元素</span><br><span class="line">    for (int i = 0; i &lt; v2.size(); i++) &#123;</span><br><span class="line">        cout &lt;&lt; v2[i] &lt;&lt; &quot; &quot;; // 输出每个元素，元素之间以空格分隔</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl; // 换行</span><br><span class="line">    </span><br><span class="line">    // 删除v2中的最后一个元素</span><br><span class="line">    v2.pop_back();</span><br><span class="line">    // 使用迭代器遍历v2并输出元素</span><br><span class="line">    for (auto it = v2.begin(); it != v2.end(); it++) &#123;</span><br><span class="line">        cout &lt;&lt; *it &lt;&lt; &quot; &quot;;  // 输出当前迭代器指向的元素</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl; // 换行</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">测试案例：</span><br><span class="line">输入：</span><br><span class="line">（无输入，代码中已创建并操作向量v、v1、v2）</span><br><span class="line"></span><br><span class="line">标准答案：</span><br><span class="line">10</span><br><span class="line">10</span><br><span class="line">1 1 1 1 1 1 1 1 1 1 2 </span><br><span class="line">1 1 1 1 1 1 1 1 1 1 </span><br><span class="line"></span><br><span class="line">代码输出：</span><br><span class="line">10</span><br><span class="line">10</span><br><span class="line">1 1 1 1 1 1 1 1 1 1 2 </span><br><span class="line">1 1 1 1 1 1 1 1 1 1 </span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+
+<h2 id="set"><a href="#set" class="headerlink" title="set"></a>set</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;   // 引入标准输入输出流库</span><br><span class="line">#include&lt;set&gt;        // 引入集合容器库</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    // 创建一个整型集合s</span><br><span class="line">    set&lt;int&gt; s;</span><br><span class="line"></span><br><span class="line">    // 向集合s中插入元素</span><br><span class="line">    s.insert(5);  // 插入元素5</span><br><span class="line">    s.insert(5);  // 插入元素5，集合中不会有重复元素，插入无效</span><br><span class="line">    s.insert(1);  // 插入元素1</span><br><span class="line">    s.insert(1);  // 插入元素1，集合中不会有重复元素，插入无效</span><br><span class="line">    s.insert(4);  // 插入元素4</span><br><span class="line">    s.insert(2);  // 插入元素2</span><br><span class="line">    s.insert(3);  // 插入元素3</span><br><span class="line">    s.insert(0);  // 插入元素0</span><br><span class="line"></span><br><span class="line">    // 遍历并输出集合s中的所有元素</span><br><span class="line">    // 注意：set中的元素是有序的，默认按照升序排列</span><br><span class="line">    for (auto it = s.begin(); it != s.end(); it++) &#123;</span><br><span class="line">        cout &lt;&lt; *it &lt;&lt; &quot; &quot;;  // 输出每个元素，元素之间以空格分隔</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;  // 输出换行</span><br><span class="line">    </span><br><span class="line">    // 输出集合s中是否包含元素1，count函数返回元素的个数，set不允许重复元素，所以结果为0或1</span><br><span class="line">    cout &lt;&lt; s.count(1) &lt;&lt; endl;  // 预期输出1，因为元素1存在于集合中</span><br><span class="line">    </span><br><span class="line">    // 从集合s中删除元素1</span><br><span class="line">    s.erase(1);</span><br><span class="line"></span><br><span class="line">    // 再次遍历集合s并输出所有元素</span><br><span class="line">    for (auto it = s.begin(); it != s.end(); it++) &#123;</span><br><span class="line">        cout &lt;&lt; *it &lt;&lt; &quot; &quot;;  // 输出每个元素，元素之间以空格分隔</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;  // 输出换行</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">测试案例：</span><br><span class="line">输入：</span><br><span class="line">（无输入，代码中已创建并操作集合s）</span><br><span class="line"></span><br><span class="line">标准答案：</span><br><span class="line">0 1 2 3 4 5 </span><br><span class="line">1</span><br><span class="line">0 2 3 4 5 </span><br><span class="line"></span><br><span class="line">代码输出：</span><br><span class="line">0 1 2 3 4 5 </span><br><span class="line">1</span><br><span class="line">0 2 3 4 5 </span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+
+<h2 id="map"><a href="#map" class="headerlink" title="map"></a>map</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;   // 引入标准输入输出流库</span><br><span class="line">#include&lt;map&gt;        // 引入映射（字典）容器库</span><br><span class="line">#include&lt;string&gt;     // 引入字符串处理库</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    // 创建一个map，键是string类型，值是int类型</span><br><span class="line">    map&lt;string, int&gt; m;</span><br><span class="line"></span><br><span class="line">    // 向map中插入键值对，键是string类型，值是int类型</span><br><span class="line">    m[&quot;hello&quot;] = 2;  // 插入键&quot;hello&quot;，值为2</span><br><span class="line">    m[&quot;world&quot;] = 1;  // 插入键&quot;world&quot;，值为1</span><br><span class="line">    </span><br><span class="line">    // 使用迭代器遍历map，从map的第一个元素开始按升序输出</span><br><span class="line">    // 注意：map中的元素默认是按照键的升序排列的</span><br><span class="line">    for (auto it = m.begin(); it != m.end(); it++) &#123;</span><br><span class="line">        cout &lt;&lt; it-&gt;first &lt;&lt; &quot; &quot; &lt;&lt; it-&gt;second &lt;&lt; endl;  // 输出键和值</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // 使用map的反向迭代器遍历map，从map的最后一个元素开始按降序输出</span><br><span class="line">    // 注意：rbegin()表示从map的最后一个元素开始，rend()表示结束位置</span><br><span class="line">    for (auto it = m.rbegin(); it != m.rend(); it++) &#123;</span><br><span class="line">        cout &lt;&lt; it-&gt;first &lt;&lt; &quot; &quot; &lt;&lt; it-&gt;second &lt;&lt; endl;  // 输出键和值</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">测试案例：</span><br><span class="line">输入：</span><br><span class="line">（无输入，代码中已插入了键值对）</span><br><span class="line"></span><br><span class="line">标准答案：</span><br><span class="line">hello 2</span><br><span class="line">world 1</span><br><span class="line">world 1</span><br><span class="line">hello 2</span><br><span class="line"></span><br><span class="line">代码输出：</span><br><span class="line">hello 2</span><br><span class="line">world 1</span><br><span class="line">world 1</span><br><span class="line">hello 2</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+
+<h2 id="stack"><a href="#stack" class="headerlink" title="stack"></a>stack</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;   // 引入标准输入输出流库</span><br><span class="line">#include&lt;stack&gt;      // 引入栈容器库</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    // 创建一个整型栈s</span><br><span class="line">    stack&lt;int&gt; s;</span><br><span class="line"></span><br><span class="line">    // 向栈中压入元素</span><br><span class="line">    s.push(1);  // 将1压入栈中</span><br><span class="line">    s.push(2);  // 将2压入栈中</span><br><span class="line">    s.push(3);  // 将3压入栈中</span><br><span class="line">    </span><br><span class="line">    // 输出栈顶元素，栈顶元素是3</span><br><span class="line">    cout &lt;&lt; s.top() &lt;&lt; endl;  // 预期输出3</span><br><span class="line">    </span><br><span class="line">    // 输出栈的大小，栈中有3个元素</span><br><span class="line">    cout &lt;&lt; s.size() &lt;&lt; endl;  // 预期输出3</span><br><span class="line">    </span><br><span class="line">    // 弹出栈顶元素</span><br><span class="line">    s.pop();  // 弹出栈顶元素3</span><br><span class="line"></span><br><span class="line">    // 输出新的栈顶元素，栈顶元素现在是2</span><br><span class="line">    cout &lt;&lt; s.top() &lt;&lt; endl;  // 预期输出2</span><br><span class="line">    </span><br><span class="line">    // 输出栈的大小，栈中有2个元素</span><br><span class="line">    cout &lt;&lt; s.size() &lt;&lt; endl;  // 预期输出2</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">测试案例：</span><br><span class="line">输入：</span><br><span class="line">（无输入，代码中已执行栈的相关操作）</span><br><span class="line"></span><br><span class="line">标准答案：</span><br><span class="line">3</span><br><span class="line">3</span><br><span class="line">2</span><br><span class="line">2</span><br><span class="line"></span><br><span class="line">代码输出：</span><br><span class="line">3</span><br><span class="line">3</span><br><span class="line">2</span><br><span class="line">2</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+
+<h2 id="queue"><a href="#queue" class="headerlink" title="queue"></a>queue</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;   // 引入标准输入输出流库</span><br><span class="line">#include&lt;queue&gt;      // 引入队列容器库</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    // 创建一个整型队列q</span><br><span class="line">    queue&lt;int&gt; q;</span><br><span class="line"></span><br><span class="line">    // 向队列中插入元素</span><br><span class="line">    q.push(1);  // 将1入队</span><br><span class="line">    q.push(2);  // 将2入队</span><br><span class="line">    q.push(3);  // 将3入队</span><br><span class="line">    </span><br><span class="line">    // 输出队列的队头元素和队尾元素</span><br><span class="line">    // 队头元素是1，队尾元素是3</span><br><span class="line">    cout &lt;&lt; q.front() &lt;&lt; &quot; &quot; &lt;&lt; q.back() &lt;&lt; endl;  // 预期输出1 3</span><br><span class="line">    </span><br><span class="line">    // 输出队列的大小，队列中有3个元素</span><br><span class="line">    cout &lt;&lt; q.size() &lt;&lt; endl;  // 预期输出3</span><br><span class="line">    </span><br><span class="line">    // 弹出队列的队头元素</span><br><span class="line">    q.pop();  // 弹出队头元素1</span><br><span class="line"></span><br><span class="line">    // 输出新的队头元素和队尾元素</span><br><span class="line">    // 队头元素现在是2，队尾元素仍然是3</span><br><span class="line">    cout &lt;&lt; q.front() &lt;&lt; &quot; &quot; &lt;&lt; q.back() &lt;&lt; endl;  // 预期输出2 3</span><br><span class="line">    </span><br><span class="line">    // 输出队列的大小，队列中有2个元素</span><br><span class="line">    cout &lt;&lt; q.size() &lt;&lt; endl;  // 预期输出2</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">测试案例：</span><br><span class="line">输入：</span><br><span class="line">（无输入，代码中已执行队列的相关操作）</span><br><span class="line"></span><br><span class="line">标准答案：</span><br><span class="line">1 3</span><br><span class="line">3</span><br><span class="line">2 3</span><br><span class="line">2</span><br><span class="line"></span><br><span class="line">代码输出：</span><br><span class="line">1 3</span><br><span class="line">3</span><br><span class="line">2 3</span><br><span class="line">2</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+
+<h2 id="unordered-map-unordered-set"><a href="#unordered-map-unordered-set" class="headerlink" title="unordered_map &amp; unordered_set"></a>unordered_map &amp; unordered_set</h2><p>不自动排序</p>
+<h2 id="bitset"><a href="#bitset" class="headerlink" title="bitset"></a>bitset</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;   // 引入标准输入输出流库</span><br><span class="line">#include&lt;bitset&gt;     // 引入位集合（bitset）库</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    // 创建一个长度为5的bitset，默认值为00000</span><br><span class="line">    bitset&lt;5&gt; b;</span><br><span class="line">    // 输出bitsetb的二进制表示</span><br><span class="line">    cout &lt;&lt; b &lt;&lt; endl;  // 预期输出: 00000</span><br><span class="line">    </span><br><span class="line">    // 创建三个bitset，分别初始化为1、2、3（默认会转为二进制形式）</span><br><span class="line">    bitset&lt;5&gt; b1(1);  // 1 -&gt; 00001</span><br><span class="line">    bitset&lt;5&gt; b2(2);  // 2 -&gt; 00010</span><br><span class="line">    bitset&lt;5&gt; b3(3);  // 3 -&gt; 00011</span><br><span class="line">    // 输出三个bitset</span><br><span class="line">    cout &lt;&lt; b1 &lt;&lt; &quot; &quot; &lt;&lt; b2 &lt;&lt; &quot; &quot; &lt;&lt; b3 &lt;&lt; endl;  // 预期输出: 00001 00010 00011</span><br><span class="line">    </span><br><span class="line">    // 创建一个bitset，直接通过二进制字符串&quot;100&quot;初始化，剩余位为0</span><br><span class="line">    bitset&lt;5&gt; b4(&quot;100&quot;);  // 二进制字符串初始化：100 -&gt; 00100</span><br><span class="line">    cout &lt;&lt; b4 &lt;&lt; endl;  // 预期输出: 00100</span><br><span class="line">    </span><br><span class="line">    // 使用bitset的成员函数进行一些操作</span><br><span class="line">    cout &lt;&lt; b3.any() &lt;&lt; endl;   // 检查是否有任何位为1，结果为true (1)，预期输出1</span><br><span class="line">    cout &lt;&lt; b3.none() &lt;&lt; endl;  // 检查是否所有位都是0，结果为false (0)，预期输出0</span><br><span class="line">    cout &lt;&lt; b3.count() &lt;&lt; endl; // 计算位为1的个数，结果为2，预期输出2</span><br><span class="line">    cout &lt;&lt; b3.test(0) &lt;&lt; endl; // 测试第0位（从右往左计数），结果为true (1)，预期输出1</span><br><span class="line">    cout &lt;&lt; b3.test(1) &lt;&lt; endl; // 测试第1位，结果为true (1)，预期输出1</span><br><span class="line">    </span><br><span class="line">    // 设置第2位为1</span><br><span class="line">    b3.set(2);</span><br><span class="line">    cout &lt;&lt; b3 &lt;&lt; endl;  // 预期输出: 00111</span><br><span class="line">    </span><br><span class="line">    // 重置第2位为0</span><br><span class="line">    b3.reset(2);</span><br><span class="line">    cout &lt;&lt; b3 &lt;&lt; endl;  // 预期输出: 00011</span><br><span class="line">    </span><br><span class="line">    // 重置所有位为0</span><br><span class="line">    b3.reset();</span><br><span class="line">    cout &lt;&lt; b3 &lt;&lt; endl;  // 预期输出: 00000</span><br><span class="line">    </span><br><span class="line">    // 翻转所有位</span><br><span class="line">    b3.flip();</span><br><span class="line">    cout &lt;&lt; b3 &lt;&lt; endl;  // 预期输出: 11111</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">测试案例：</span><br><span class="line">输入：</span><br><span class="line">（无输入，代码中已执行bitset的相关操作）</span><br><span class="line"></span><br><span class="line">标准答案：</span><br><span class="line">00000</span><br><span class="line">00001 00010 00011</span><br><span class="line">00100</span><br><span class="line">1</span><br><span class="line">0</span><br><span class="line">2</span><br><span class="line">1</span><br><span class="line">1</span><br><span class="line">00111</span><br><span class="line">00011</span><br><span class="line">00000</span><br><span class="line">11111</span><br><span class="line"></span><br><span class="line">代码输出：</span><br><span class="line">00000</span><br><span class="line">00001 00010 00011</span><br><span class="line">00100</span><br><span class="line">1</span><br><span class="line">0</span><br><span class="line">2</span><br><span class="line">1</span><br><span class="line">1</span><br><span class="line">00111</span><br><span class="line">00011</span><br><span class="line">00000</span><br><span class="line">11111</span><br><span class="line">*/</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="https://github.com/hughnwj">项目</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%AE%B9%E5%99%A8"><span class="toc-number">1.</span> <span class="toc-text">第三章 容器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#vector"><span class="toc-number">1.1.</span> <span class="toc-text">vector</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#set"><span class="toc-number">1.2.</span> <span class="toc-text">set</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#map"><span class="toc-number">1.3.</span> <span class="toc-text">map</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#stack"><span class="toc-number">1.4.</span> <span class="toc-text">stack</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#queue"><span class="toc-number">1.5.</span> <span class="toc-text">queue</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#unordered-map-unordered-set"><span class="toc-number">1.6.</span> <span class="toc-text">unordered_map &amp; unordered_set</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bitset"><span class="toc-number">1.7.</span> <span class="toc-text">bitset</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2024/11/13/day3%20%E5%AE%B9%E5%99%A8/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2024/11/13/day3%20%E5%AE%B9%E5%99%A8/&text=day3 容器"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2024/11/13/day3%20%E5%AE%B9%E5%99%A8/&title=day3 容器"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2024/11/13/day3%20%E5%AE%B9%E5%99%A8/&is_video=false&description=day3 容器"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=day3 容器&body=Check out this article: http://example.com/2024/11/13/day3%20%E5%AE%B9%E5%99%A8/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2024/11/13/day3%20%E5%AE%B9%E5%99%A8/&title=day3 容器"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2024/11/13/day3%20%E5%AE%B9%E5%99%A8/&title=day3 容器"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2024/11/13/day3%20%E5%AE%B9%E5%99%A8/&title=day3 容器"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2024/11/13/day3%20%E5%AE%B9%E5%99%A8/&title=day3 容器"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2024/11/13/day3%20%E5%AE%B9%E5%99%A8/&name=day3 容器&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2024/11/13/day3%20%E5%AE%B9%E5%99%A8/&t=day3 容器"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024
+    cozy
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/hughnwj">项目</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
