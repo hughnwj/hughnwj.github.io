@@ -4,17 +4,23 @@
   
     
     <entry>
-      <title>博客建立教程</title>
+      <title>0.学习路线</title>
       <link href="/2025/03/14/0.%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/"/>
       <url>/2025/03/14/0.%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</url>
       
-        <content type="html"><![CDATA[<ol><li></li></ol>]]></content>
+        <content type="html"><![CDATA[<h1 id="学习路线"><a href="#学习路线" class="headerlink" title="学习路线"></a>学习路线</h1><h3 id="🎯-第一阶段：打好基础"><a href="#🎯-第一阶段：打好基础" class="headerlink" title="🎯 第一阶段：打好基础"></a>🎯 <strong>第一阶段：打好基础</strong></h3><p><strong>目标</strong>：理解大模型基础知识，掌握Agent开发核心概念和工具<br> 📌 <strong>课程模块</strong>：</p><ol><li>AI大模型应用开发工程师课程导读</li><li>Agent实战基础之大模型基础</li><li>Agent实战基础之在线大模型开发</li><li>Agent实战基础之提示词工程和Function进阶实战</li></ol><p>✅ <strong>学习成果</strong>：</p><ul><li>熟悉大模型概念、原理和开发环境</li><li>掌握提示词工程、Function调用，提高模型交互能力</li></ul><hr><h3 id="🚀-第二阶段：强化多模态与Agent架构实战"><a href="#🚀-第二阶段：强化多模态与Agent架构实战" class="headerlink" title="🚀 第二阶段：强化多模态与Agent架构实战"></a>🚀 <strong>第二阶段：强化多模态与Agent架构实战</strong></h3><p><strong>目标</strong>：掌握多模态大模型开发，熟悉Agent架构与落地方案<br> 📌 <strong>课程模块</strong>： 5. Agent实战基础之多模态大模型实战</p><ol start="6"><li>Agent实战基础之Agent架构与落地方案</li><li>Agent实战基础之ReAct架构实战</li></ol><p>✅ <strong>学习成果</strong>：</p><ul><li>理解多模态大模型（图像、文本、语音）融合开发</li><li>熟悉Agent架构（传统+ReAct思路），掌握多场景落地实现</li></ul><hr><h3 id="🔧-第三阶段：进阶开发技能强化"><a href="#🔧-第三阶段：进阶开发技能强化" class="headerlink" title="🔧 第三阶段：进阶开发技能强化"></a>🔧 <strong>第三阶段：进阶开发技能强化</strong></h3><p><strong>目标</strong>：熟练掌握核心工具链，提升开发效率和应用能力<br> 📌 <strong>课程模块</strong>： </p><ol start="8"><li><p>Agent实战技能之Dify智能应用开发</p></li><li><p>Agent实战技能之Assistants API</p></li><li><p>Agent实战技能之LangChain全面剖析</p></li><li><p>Agent实战技能之LangGraph深度实战</p></li></ol><p>✅ <strong>学习成果</strong>：</p><ul><li>上手Dify等智能应用开发平台</li><li>深入掌握LangChain、LangGraph，实现复杂业务逻辑编排</li></ul><hr><h3 id="🏗️-第四阶段：大型项目实战演练"><a href="#🏗️-第四阶段：大型项目实战演练" class="headerlink" title="🏗️ 第四阶段：大型项目实战演练"></a>🏗️ <strong>第四阶段：大型项目实战演练</strong></h3><p><strong>目标</strong>：完成从0到1的大型商业项目开发，积累实战经验<br> 📌 <strong>课程模块</strong>： </p><ol start="12"><li><p>Agent大型项目实战1:百亿级智能数据分析平台</p></li><li><p>Agent大型项目实战2:多模态Agent商业平台</p></li><li><p>Agent大型项目实战3:ChatBI即席查询平台</p></li></ol><p>✅ <strong>学习成果</strong>：</p><ul><li>具备大规模数据分析平台搭建能力</li><li>熟悉多模态Agent在商业场景落地开发</li><li>掌握ChatBI查询平台的完整设计与实现</li></ul><hr><h3 id="🧠-第五阶段：RAG架构与性能优化突破"><a href="#🧠-第五阶段：RAG架构与性能优化突破" class="headerlink" title="🧠 第五阶段：RAG架构与性能优化突破"></a>🧠 <strong>第五阶段：RAG架构与性能优化突破</strong></h3><p><strong>目标</strong>：掌握RAG（检索增强生成）技术，解决大模型知识瓶颈<br> 📌 <strong>课程模块</strong>： </p><ol start="15"><li><p>RAG实战基础之RAG架构演进之路</p></li><li><p>RAG实战基础之RAG技术选型</p></li><li><p>RAG实战基础之性能优化</p></li><li><p>RAG实战进阶之GraphRAG实战</p></li><li><p>RAG项目实战:高性能RAG商业项目</p></li></ol><p>✅ <strong>学习成果</strong>：</p><ul><li>理解RAG原理与架构演进</li><li>掌握RAG系统搭建与性能优化策略</li><li>上手GraphRAG进阶玩法，落地高性能RAG项目</li></ul><hr><h3 id="🔥-第六阶段：DeepSeek专题深度研习"><a href="#🔥-第六阶段：DeepSeek专题深度研习" class="headerlink" title="🔥 第六阶段：DeepSeek专题深度研习"></a>🔥 <strong>第六阶段：DeepSeek专题深度研习</strong></h3><p><strong>目标</strong>：深入探索大模型领域最新技术趋势，完成企业级项目交付<br> 📌 <strong>课程模块</strong>： 20. DeepSeek专题之大模型API实战</p><ol start="21"><li>DeepSeek专题之统一多模态模型</li><li>DeepSeek专题之微调行业大模型</li><li>DeepSeek专题之蒸馏专属大模型</li><li>DeepSeek专题之企业级智能体客服项目</li></ol><p>✅ <strong>学习成果</strong>：</p><ul><li>掌握DeepSeek API与多模态模型开发</li><li>理解大模型微调、蒸馏与专属模型打造</li><li>完成企业级智能体客服系统落地</li></ul><hr><p>✨ <strong>🔚 最终成果</strong></p><ul><li>掌握大模型开发全流程，从基础到实战全覆盖</li><li>理解多模态Agent、RAG、DeepSeek等前沿技术</li><li>具备独立开发和交付大型商业项目能力</li></ul>]]></content>
       
+      
+      <categories>
+          
+          <category> AI大模型开发工程师 </category>
+          
+      </categories>
       
       
         <tags>
             
-            <tag> AI大模型开发工程师 </tag>
+            <tag> 工作 </tag>
             
         </tags>
       
@@ -32,14 +38,14 @@
       
       <categories>
           
-          <category> 教程 </category>
+          <category> 博客建立教程 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 教程 </tag>
+            <tag> 模板 </tag>
             
         </tags>
       
