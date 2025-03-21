@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="[TOC] Agent实战基础之大模型基础transformer 输入部分 框架：  源文本：嵌入层以及位置编码器 目标文本：嵌入层以及位置编码器  组件： 文本嵌入层 (Embedding) 概念：文本嵌入层用于将离散的词或符号转化为连续的向量表示，使得每个词都拥有一个固定长度的语义表示。  作用：    将词汇转换为低维向量，便于后续的计算处理。   捕获词与词之间的语义关系，为模型理解文本提">
+    <meta name="description" content="Agent实战基础之大模型基础transformer 输入部分 框架：  源文本：嵌入层以及位置编码器 目标文本：嵌入层以及位置编码器  组件： 文本嵌入层 (Embedding) 概念：文本嵌入层用于将离散的词或符号转化为连续的向量表示，使得每个词都拥有一个固定长度的语义表示。  作用：    将词汇转换为低维向量，便于后续的计算处理。   捕获词与词之间的语义关系，为模型理解文本提供基础信息。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2.Agent实战基础之大模型基础">
 <meta property="og:url" content="http://example.com/2025/03/15/2.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="cozy">
-<meta property="og:description" content="[TOC] Agent实战基础之大模型基础transformer 输入部分 框架：  源文本：嵌入层以及位置编码器 目标文本：嵌入层以及位置编码器  组件： 文本嵌入层 (Embedding) 概念：文本嵌入层用于将离散的词或符号转化为连续的向量表示，使得每个词都拥有一个固定长度的语义表示。  作用：    将词汇转换为低维向量，便于后续的计算处理。   捕获词与词之间的语义关系，为模型理解文本提">
+<meta property="og:description" content="Agent实战基础之大模型基础transformer 输入部分 框架：  源文本：嵌入层以及位置编码器 目标文本：嵌入层以及位置编码器  组件： 文本嵌入层 (Embedding) 概念：文本嵌入层用于将离散的词或符号转化为连续的向量表示，使得每个词都拥有一个固定长度的语义表示。  作用：    将词汇转换为低维向量，便于后续的计算处理。   捕获词与词之间的语义关系，为模型理解文本提供基础信息。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/images/2.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/image-20250315135636248.png">
 <meta property="og:image" content="http://example.com/images/2.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/image-20250315135837941.png">
@@ -21,7 +21,7 @@
 <meta property="og:image" content="http://example.com/images/2.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/image-20250315144535063.png">
 <meta property="og:image" content="http://example.com/images/2.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/image-20250315140132700.png">
 <meta property="article:published_time" content="2025-03-15T05:18:44.055Z">
-<meta property="article:modified_time" content="2025-03-21T08:55:50.716Z">
+<meta property="article:modified_time" content="2025-03-21T09:07:05.485Z">
 <meta property="article:author" content="cozy">
 <meta property="article:tag" content="工作">
 <meta name="twitter:card" content="summary">
@@ -177,8 +177,7 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <p>[TOC]</p>
-<h1 id="Agent实战基础之大模型基础"><a href="#Agent实战基础之大模型基础" class="headerlink" title="Agent实战基础之大模型基础"></a>Agent实战基础之大模型基础</h1><h2 id="transformer"><a href="#transformer" class="headerlink" title="transformer"></a>transformer</h2><p><img src="/images/2.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/image-20250315135636248.png" alt="image-20250315135636248"></p>
+    <h1 id="Agent实战基础之大模型基础"><a href="#Agent实战基础之大模型基础" class="headerlink" title="Agent实战基础之大模型基础"></a>Agent实战基础之大模型基础</h1><h2 id="transformer"><a href="#transformer" class="headerlink" title="transformer"></a>transformer</h2><p><img src="/images/2.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/image-20250315135636248.png" alt="image-20250315135636248"></p>
 <h3 id="输入部分"><a href="#输入部分" class="headerlink" title="输入部分"></a>输入部分</h3><p><img src="/images/2.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/image-20250315135837941.png" alt="image-20250315135837941"></p>
 <p><strong>框架：</strong></p>
 <ol>

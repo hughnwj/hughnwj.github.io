@@ -6,19 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="[TOC] Agent实战基础之提示词工程和Function进阶实战面向目标架构面向目标开发流程 大模型的核心目标是 自动规划、自动调用外部工具、自动生成外部函数，实现智能化执行任务。开发过程中，主要包含以下阶段：  大模型自动规划 大模型自动调用外部工具执行 大模型自动生成外部函数  技术选型1. 提示词工程与外部函数 提示词工程  设计清晰、逻辑严谨的 Prompt，引导大模型按目标输出。">
+    <meta name="description" content="Agent实战基础之提示词工程和Function进阶实战面向目标架构面向目标开发流程 大模型的核心目标是 自动规划、自动调用外部工具、自动生成外部函数，实现智能化执行任务。开发过程中，主要包含以下阶段：  大模型自动规划 大模型自动调用外部工具执行 大模型自动生成外部函数  技术选型1. 提示词工程与外部函数 提示词工程  设计清晰、逻辑严谨的 Prompt，引导大模型按目标输出。   Funct">
 <meta property="og:type" content="article">
 <meta property="og:title" content="4.Agent实战基础之提示词工程和Function进阶实战">
 <meta property="og:url" content="http://example.com/2025/03/17/4.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%B7%A5%E7%A8%8B%E5%92%8CFunction%E8%BF%9B%E9%98%B6%E5%AE%9E%E6%88%98/index.html">
 <meta property="og:site_name" content="cozy">
-<meta property="og:description" content="[TOC] Agent实战基础之提示词工程和Function进阶实战面向目标架构面向目标开发流程 大模型的核心目标是 自动规划、自动调用外部工具、自动生成外部函数，实现智能化执行任务。开发过程中，主要包含以下阶段：  大模型自动规划 大模型自动调用外部工具执行 大模型自动生成外部函数  技术选型1. 提示词工程与外部函数 提示词工程  设计清晰、逻辑严谨的 Prompt，引导大模型按目标输出。">
+<meta property="og:description" content="Agent实战基础之提示词工程和Function进阶实战面向目标架构面向目标开发流程 大模型的核心目标是 自动规划、自动调用外部工具、自动生成外部函数，实现智能化执行任务。开发过程中，主要包含以下阶段：  大模型自动规划 大模型自动调用外部工具执行 大模型自动生成外部函数  技术选型1. 提示词工程与外部函数 提示词工程  设计清晰、逻辑严谨的 Prompt，引导大模型按目标输出。   Funct">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/images/4.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%B7%A5%E7%A8%8B%E5%92%8CFunction%E8%BF%9B%E9%98%B6%E5%AE%9E%E6%88%98/image-20250318093723927.png">
 <meta property="og:image" content="http://example.com/images/4.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%B7%A5%E7%A8%8B%E5%92%8CFunction%E8%BF%9B%E9%98%B6%E5%AE%9E%E6%88%98/image-20250319112047791.png">
 <meta property="og:image" content="http://example.com/images/4.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%B7%A5%E7%A8%8B%E5%92%8CFunction%E8%BF%9B%E9%98%B6%E5%AE%9E%E6%88%98/image-20250319112109227.png">
 <meta property="og:image" content="http://example.com/images/4.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%B7%A5%E7%A8%8B%E5%92%8CFunction%E8%BF%9B%E9%98%B6%E5%AE%9E%E6%88%98/image-20250319112123288.png">
 <meta property="article:published_time" content="2025-03-17T03:51:42.283Z">
-<meta property="article:modified_time" content="2025-03-21T09:03:24.315Z">
+<meta property="article:modified_time" content="2025-03-21T09:07:07.702Z">
 <meta property="article:author" content="cozy">
 <meta property="article:tag" content="工作">
 <meta name="twitter:card" content="summary">
@@ -174,8 +174,7 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <p>[TOC]</p>
-<h1 id="Agent实战基础之提示词工程和Function进阶实战"><a href="#Agent实战基础之提示词工程和Function进阶实战" class="headerlink" title="Agent实战基础之提示词工程和Function进阶实战"></a>Agent实战基础之提示词工程和Function进阶实战</h1><h2 id="面向目标架构"><a href="#面向目标架构" class="headerlink" title="面向目标架构"></a>面向目标架构</h2><h3 id="面向目标开发流程"><a href="#面向目标开发流程" class="headerlink" title="面向目标开发流程"></a>面向目标开发流程</h3><p><img src="/images/4.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%B7%A5%E7%A8%8B%E5%92%8CFunction%E8%BF%9B%E9%98%B6%E5%AE%9E%E6%88%98/image-20250318093723927.png" alt="image-20250318093723927"></p>
+    <h1 id="Agent实战基础之提示词工程和Function进阶实战"><a href="#Agent实战基础之提示词工程和Function进阶实战" class="headerlink" title="Agent实战基础之提示词工程和Function进阶实战"></a>Agent实战基础之提示词工程和Function进阶实战</h1><h2 id="面向目标架构"><a href="#面向目标架构" class="headerlink" title="面向目标架构"></a>面向目标架构</h2><h3 id="面向目标开发流程"><a href="#面向目标开发流程" class="headerlink" title="面向目标开发流程"></a>面向目标开发流程</h3><p><img src="/images/4.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%B7%A5%E7%A8%8B%E5%92%8CFunction%E8%BF%9B%E9%98%B6%E5%AE%9E%E6%88%98/image-20250318093723927.png" alt="image-20250318093723927"></p>
 <p>大模型的核心目标是 <strong>自动规划、自动调用外部工具、自动生成外部函数</strong>，实现智能化执行任务。开发过程中，主要包含以下阶段：</p>
 <ol>
 <li><strong>大模型自动规划</strong></li>
