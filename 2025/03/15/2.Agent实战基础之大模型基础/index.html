@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="Agent实战基础之大模型基础transformer 输入部分 框架：  源文本：嵌入层以及位置编码器 目标文本：嵌入层以及位置编码器  组件： 文本嵌入层 (Embedding) 概念：文本嵌入层用于将离散的词或符号转化为连续的向量表示，使得每个词都拥有一个固定长度的语义表示。  作用：    将词汇转换为低维向量，便于后续的计算处理。   捕获词与词之间的语义关系，为模型理解文本提供基础信息。">
+    <meta name="description" content="1. transformer 1.1 输入部分 1.1.1 框架 源文本：嵌入层以及位置编码器 目标文本：嵌入层以及位置编码器  1.1.2 组件1.1.2.1 文本嵌入层 (Embedding) 概念：文本嵌入层用于将离散的词或符号转化为连续的向量表示，使得每个词都拥有一个固定长度的语义表示。  作用：    将词汇转换为低维向量，便于后续的计算处理。   捕获词与词之间的语义关系，为模型理解文">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2.Agent实战基础之大模型基础">
 <meta property="og:url" content="http://example.com/2025/03/15/2.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="cozy">
-<meta property="og:description" content="Agent实战基础之大模型基础transformer 输入部分 框架：  源文本：嵌入层以及位置编码器 目标文本：嵌入层以及位置编码器  组件： 文本嵌入层 (Embedding) 概念：文本嵌入层用于将离散的词或符号转化为连续的向量表示，使得每个词都拥有一个固定长度的语义表示。  作用：    将词汇转换为低维向量，便于后续的计算处理。   捕获词与词之间的语义关系，为模型理解文本提供基础信息。">
+<meta property="og:description" content="1. transformer 1.1 输入部分 1.1.1 框架 源文本：嵌入层以及位置编码器 目标文本：嵌入层以及位置编码器  1.1.2 组件1.1.2.1 文本嵌入层 (Embedding) 概念：文本嵌入层用于将离散的词或符号转化为连续的向量表示，使得每个词都拥有一个固定长度的语义表示。  作用：    将词汇转换为低维向量，便于后续的计算处理。   捕获词与词之间的语义关系，为模型理解文">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/images/2.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/image-20250315135636248.png">
 <meta property="og:image" content="http://example.com/images/2.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/image-20250315135837941.png">
@@ -19,9 +19,8 @@
 <meta property="og:image" content="http://example.com/images/2.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/image-20250315140122384.png">
 <meta property="og:image" content="http://example.com/images/2.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/image-20250315143826474.png">
 <meta property="og:image" content="http://example.com/images/2.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/image-20250315144535063.png">
-<meta property="og:image" content="http://example.com/images/2.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/image-20250315140132700.png">
 <meta property="article:published_time" content="2025-03-15T05:18:44.055Z">
-<meta property="article:modified_time" content="2025-03-21T09:07:05.485Z">
+<meta property="article:modified_time" content="2025-03-21T09:18:53.075Z">
 <meta property="article:author" content="cozy">
 <meta property="article:tag" content="工作">
 <meta name="twitter:card" content="summary">
@@ -127,7 +126,7 @@
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80"><span class="toc-number">1.</span> <span class="toc-text">Agent实战基础之大模型基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#transformer"><span class="toc-number">1.1.</span> <span class="toc-text">transformer</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E9%83%A8%E5%88%86"><span class="toc-number">1.1.1.</span> <span class="toc-text">输入部分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E5%B5%8C%E5%85%A5%E5%B1%82-Embedding"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">文本嵌入层 (Embedding)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%8D%E7%BD%AE%E7%BC%96%E7%A0%81%E5%99%A8-Positional-Encoding"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">位置编码器 (Positional Encoding)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%E9%83%A8%E5%88%86"><span class="toc-number">1.1.2.</span> <span class="toc-text">输出部分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E7%A0%81%E5%99%A8%E9%83%A8%E5%88%86"><span class="toc-number">1.1.3.</span> <span class="toc-text">解码器部分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A9%E7%A0%81%E5%BC%A0%E9%87%8F-mask"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">掩码张量 (mask)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6"><span class="toc-number">1.1.3.2.</span> <span class="toc-text">自注意力机制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E5%A4%B4%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6"><span class="toc-number">1.1.3.3.</span> <span class="toc-text">多头注意力机制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E9%A6%88%E5%85%A8%E8%BF%9E%E6%8E%A5%E5%B1%82"><span class="toc-number">1.1.3.4.</span> <span class="toc-text">前馈全连接层</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%84%E8%8C%83%E5%8C%96%E5%B1%82"><span class="toc-number">1.1.3.5.</span> <span class="toc-text">规范化层</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AE%8B%E5%B7%AE%E8%BF%9E%E6%8E%A5"><span class="toc-number">1.1.3.6.</span> <span class="toc-text">残差连接</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E7%A0%81%E5%99%A8%E9%83%A8%E5%88%86"><span class="toc-number">1.1.4.</span> <span class="toc-text">编码器部分</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Open-GPT%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC%E5%AF%B9%E6%AF%94"><span class="toc-number">1.2.</span> <span class="toc-text">Open GPT不同版本对比</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E5%90%8C%E6%A8%A1%E5%9E%8B%E5%AF%B9%E6%AF%94"><span class="toc-number">1.2.1.</span> <span class="toc-text">不同模型对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GPT%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC%E5%AF%B9%E6%AF%94"><span class="toc-number">1.2.2.</span> <span class="toc-text">GPT不同版本对比</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-transformer"><span class="toc-number">1.</span> <span class="toc-text">1. transformer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E8%BE%93%E5%85%A5%E9%83%A8%E5%88%86"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 输入部分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-1-%E6%A1%86%E6%9E%B6"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1.1 框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-2-%E7%BB%84%E4%BB%B6"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.1.2 组件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-2-1-%E6%96%87%E6%9C%AC%E5%B5%8C%E5%85%A5%E5%B1%82-Embedding"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">1.1.2.1 文本嵌入层 (Embedding)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-2-2-%E4%BD%8D%E7%BD%AE%E7%BC%96%E7%A0%81%E5%99%A8-Positional-Encoding"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">1.1.2.2 位置编码器 (Positional Encoding)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E8%BE%93%E5%87%BA%E9%83%A8%E5%88%86"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 输出部分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-1-%E6%A1%86%E6%9E%B6"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.2.1 框架</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-%E8%A7%A3%E7%A0%81%E5%99%A8%E9%83%A8%E5%88%86"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 解码器部分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-1-%E6%A1%86%E6%9E%B6"><span class="toc-number">1.3.1.</span> <span class="toc-text">1.3.1 框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-2-%E7%BB%84%E4%BB%B6"><span class="toc-number">1.3.2.</span> <span class="toc-text">1.3.2 组件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-2-1-%E6%8E%A9%E7%A0%81%E5%BC%A0%E9%87%8F-mask"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">1.3.2.1 掩码张量 (mask)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-2-2-%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6"><span class="toc-number">1.3.2.2.</span> <span class="toc-text">1.3.2.2 自注意力机制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-2-3-%E5%A4%9A%E5%A4%B4%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6"><span class="toc-number">1.3.2.3.</span> <span class="toc-text">1.3.2.3 多头注意力机制</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Open-GPT%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC%E5%AF%B9%E6%AF%94"><span class="toc-number">1.4.</span> <span class="toc-text">2. Open GPT不同版本对比</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E4%B8%8D%E5%90%8C%E6%A8%A1%E5%9E%8B%E5%AF%B9%E6%AF%94"><span class="toc-number">1.4.1.</span> <span class="toc-text">2.1 不同模型对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-GPT%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC%E5%AF%B9%E6%AF%94"><span class="toc-number">1.4.2.</span> <span class="toc-text">2.2 GPT不同版本对比</span></a></li></ol></li></ol></li></ol>
       </div>
     
   </span>
@@ -177,67 +176,62 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <h1 id="Agent实战基础之大模型基础"><a href="#Agent实战基础之大模型基础" class="headerlink" title="Agent实战基础之大模型基础"></a>Agent实战基础之大模型基础</h1><h2 id="transformer"><a href="#transformer" class="headerlink" title="transformer"></a>transformer</h2><p><img src="/images/2.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/image-20250315135636248.png" alt="image-20250315135636248"></p>
-<h3 id="输入部分"><a href="#输入部分" class="headerlink" title="输入部分"></a>输入部分</h3><p><img src="/images/2.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/image-20250315135837941.png" alt="image-20250315135837941"></p>
-<p><strong>框架：</strong></p>
-<ol>
-<li><strong>源文本</strong>：嵌入层以及位置编码器</li>
-<li><strong>目标文本</strong>：嵌入层以及位置编码器</li>
+    <h1 id="1-transformer"><a href="#1-transformer" class="headerlink" title="1. transformer"></a>1. transformer</h1><p><img src="/images/2.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/image-20250315135636248.png" alt="image-20250315135636248"></p>
+<h2 id="1-1-输入部分"><a href="#1-1-输入部分" class="headerlink" title="1.1 输入部分"></a>1.1 输入部分</h2><p><img src="/images/2.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/image-20250315135837941.png" alt="image-20250315135837941"></p>
+<h3 id="1-1-1-框架"><a href="#1-1-1-框架" class="headerlink" title="1.1.1 框架"></a>1.1.1 框架</h3><ol>
+<li>源文本：嵌入层以及位置编码器</li>
+<li>目标文本：嵌入层以及位置编码器</li>
 </ol>
-<p><strong>组件：</strong></p>
-<h4 id="文本嵌入层-Embedding"><a href="#文本嵌入层-Embedding" class="headerlink" title="文本嵌入层 (Embedding)"></a>文本嵌入层 (Embedding)</h4><ul>
-<li><p><strong>概念：</strong><br>文本嵌入层用于将离散的词或符号转化为连续的向量表示，使得每个词都拥有一个固定长度的语义表示。</p>
+<h3 id="1-1-2-组件"><a href="#1-1-2-组件" class="headerlink" title="1.1.2 组件"></a>1.1.2 组件</h3><h4 id="1-1-2-1-文本嵌入层-Embedding"><a href="#1-1-2-1-文本嵌入层-Embedding" class="headerlink" title="1.1.2.1 文本嵌入层 (Embedding)"></a>1.1.2.1 文本嵌入层 (Embedding)</h4><ul>
+<li><p>概念：<br>文本嵌入层用于将离散的词或符号转化为连续的向量表示，使得每个词都拥有一个固定长度的语义表示。</p>
 </li>
-<li><p><strong>作用：</strong>  </p>
+<li><p>作用：  </p>
 <ul>
 <li>将词汇转换为低维向量，便于后续的计算处理。  </li>
 <li>捕获词与词之间的语义关系，为模型理解文本提供基础信息。</li>
 </ul>
 </li>
 </ul>
-<h4 id="位置编码器-Positional-Encoding"><a href="#位置编码器-Positional-Encoding" class="headerlink" title="位置编码器 (Positional Encoding)"></a>位置编码器 (Positional Encoding)</h4><ul>
-<li><p><strong>概念：</strong><br>位置编码器为嵌入向量添加位置信息，由于嵌入层本身不包含词序信息，位置编码器弥补了这一不足。</p>
+<h4 id="1-1-2-2-位置编码器-Positional-Encoding"><a href="#1-1-2-2-位置编码器-Positional-Encoding" class="headerlink" title="1.1.2.2 位置编码器 (Positional Encoding)"></a>1.1.2.2 位置编码器 (Positional Encoding)</h4><ul>
+<li><p>概念：<br>位置编码器为嵌入向量添加位置信息，由于嵌入层本身不包含词序信息，位置编码器弥补了这一不足。</p>
 </li>
-<li><p><strong>作用：</strong>  </p>
+<li><p>作用：  </p>
 <ul>
 <li>注入序列中各词的相对或绝对位置信息，帮助模型识别词序。  </li>
 <li>保持语法结构，确保模型理解句子内部的依赖关系。</li>
 </ul>
 </li>
 </ul>
-<h3 id="输出部分"><a href="#输出部分" class="headerlink" title="输出部分"></a>输出部分</h3><p><img src="/images/2.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/image-20250315140112908.png" alt="image-20250315140112908"></p>
-<p><strong>框架：</strong></p>
-<ol>
+<h2 id="1-2-输出部分"><a href="#1-2-输出部分" class="headerlink" title="1.2 输出部分"></a>1.2 输出部分</h2><p><img src="/images/2.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/image-20250315140112908.png" alt="image-20250315140112908"></p>
+<h3 id="1-2-1-框架"><a href="#1-2-1-框架" class="headerlink" title="1.2.1 框架"></a>1.2.1 框架</h3><ol>
 <li>线性层  </li>
 <li>softmax 处理器</li>
 </ol>
-<h3 id="解码器部分"><a href="#解码器部分" class="headerlink" title="解码器部分"></a>解码器部分</h3><p><img src="/images/2.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/image-20250315140122384.png" alt="image-20250315140122384"></p>
-<p><strong>框架：</strong></p>
-<ol>
+<h2 id="1-3-解码器部分"><a href="#1-3-解码器部分" class="headerlink" title="1.3 解码器部分"></a>1.3 解码器部分</h2><p><img src="/images/2.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/image-20250315140122384.png" alt="image-20250315140122384"></p>
+<h3 id="1-3-1-框架"><a href="#1-3-1-框架" class="headerlink" title="1.3.1 框架"></a>1.3.1 框架</h3><ol>
 <li>由 N 个编码器堆叠  </li>
 <li>每个编码器包含两个子层：<ul>
-<li><strong>第一个子层：</strong> 多头自注意力子层 + 规范化层 + 残差连接  </li>
-<li><strong>第二个子层：</strong> 前馈全连接子层 + 规范化层 + 残差连接</li>
+<li>第一个子层：多头自注意力子层 + 规范化层 + 残差连接  </li>
+<li>第二个子层：前馈全连接子层 + 规范化层 + 残差连接</li>
 </ul>
 </li>
 </ol>
-<p><strong>组件：</strong></p>
-<h4 id="掩码张量-mask"><a href="#掩码张量-mask" class="headerlink" title="掩码张量 (mask)"></a>掩码张量 (mask)</h4><ul>
-<li><p><strong>概念：</strong><br>掩码张量用于屏蔽掉不应参与计算的信息，例如填充符号或在生成任务中需要屏蔽未来的信息。</p>
+<h3 id="1-3-2-组件"><a href="#1-3-2-组件" class="headerlink" title="1.3.2 组件"></a>1.3.2 组件</h3><h4 id="1-3-2-1-掩码张量-mask"><a href="#1-3-2-1-掩码张量-mask" class="headerlink" title="1.3.2.1 掩码张量 (mask)"></a>1.3.2.1 掩码张量 (mask)</h4><ul>
+<li><p>概念：<br>掩码张量用于屏蔽掉不应参与计算的信息，例如填充符号或在生成任务中需要屏蔽未来的信息。</p>
 </li>
-<li><p><strong>作用：</strong>  </p>
+<li><p>作用：  </p>
 <ul>
 <li>防止模型在计算注意力分数时考虑到无关或不允许访问的信息。  </li>
 <li>确保训练过程中的因果关系（例如在自回归生成模型中屏蔽未来时刻）。</li>
 </ul>
 </li>
 </ul>
-<h4 id="自注意力机制"><a href="#自注意力机制" class="headerlink" title="自注意力机制"></a>自注意力机制</h4><p><img src="/images/2.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/image-20250315143826474.png" alt="image-20250315143826474"></p>
+<h4 id="1-3-2-2-自注意力机制"><a href="#1-3-2-2-自注意力机制" class="headerlink" title="1.3.2.2 自注意力机制"></a>1.3.2.2 自注意力机制</h4><p><img src="/images/2.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/image-20250315143826474.png" alt="image-20250315143826474"></p>
 <p>$$<br>\text{Attention}(Q, K, V) &#x3D; \text{softmax} \left( \frac{QK^T}{\sqrt{d_k}} \right) V<br>$$</p>
 <ul>
-<li><p><strong>概念：</strong><br>自注意力机制允许模型在计算当前词的表示时，同时考虑序列中所有其他位置的词，从而捕捉全局依赖关系。</p>
+<li><p>概念：<br>自注意力机制允许模型在计算当前词的表示时，同时考虑序列中所有其他位置的词，从而捕捉全局依赖关系。</p>
 </li>
-<li><p><strong>作用：</strong>  </p>
+<li><p>作用：  </p>
 <ul>
 <li>动态调整每个词在整体语义表示中的权重。  </li>
 <li>提升模型对长距离依赖关系的捕捉能力。</li>
@@ -245,68 +239,27 @@
 </li>
 </ul>
 <blockquote>
-<p><strong>说明：</strong> 输入的 Q、K、V 通常中，K 与 V 是相同的，而 Q 可以不同；特殊情况下 Q&#x3D;K&#x3D;V 则称为标准的自注意力机制。</p>
+<p>说明： 输入的 Q、K、V 通常中，K 与 V 是相同的，而 Q 可以不同；特殊情况下 Q&#x3D;K&#x3D;V 则称为标准的自注意力机制。</p>
 </blockquote>
-<h4 id="多头注意力机制"><a href="#多头注意力机制" class="headerlink" title="多头注意力机制"></a>多头注意力机制</h4><p><img src="/images/2.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/image-20250315144535063.png" alt="image-20250315144535063"></p>
+<h4 id="1-3-2-3-多头注意力机制"><a href="#1-3-2-3-多头注意力机制" class="headerlink" title="1.3.2.3 多头注意力机制"></a>1.3.2.3 多头注意力机制</h4><p><img src="/images/2.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/image-20250315144535063.png" alt="image-20250315144535063"></p>
 <ul>
-<li><p><strong>概念：</strong><br>多头注意力机制通过将输入的特征向量划分为多个子空间（head），在每个子空间上分别计算注意力，然后将结果合并，获得更丰富的表示。</p>
+<li><p>概念：<br>多头注意力机制通过将输入的特征向量划分为多个子空间（head），在每个子空间上分别计算注意力，然后将结果合并，获得更丰富的表示。</p>
 </li>
-<li><p><strong>作用：</strong>  </p>
+<li><p>作用：  </p>
 <ul>
 <li>使模型能在不同的子空间中捕捉多种语义信息。  </li>
 <li>增强模型的表达能力和稳定性，避免单一注意力头的局限性。</li>
 </ul>
 </li>
 </ul>
-<h4 id="前馈全连接层"><a href="#前馈全连接层" class="headerlink" title="前馈全连接层"></a>前馈全连接层</h4><ul>
-<li><p><strong>概念：</strong><br>前馈全连接层通常由两层线性变换及其中间的非线性激活函数（如 ReLU 或 GeLU）构成，针对每个序列位置独立操作。</p>
-</li>
-<li><p><strong>作用：</strong>  </p>
-<ul>
-<li>进一步提取并组合特征信息，提升模型的非线性表达能力。  </li>
-<li>对每个位置的表示进行独立变换，增强特征的抽象性。</li>
-</ul>
-</li>
-</ul>
-<h4 id="规范化层"><a href="#规范化层" class="headerlink" title="规范化层"></a>规范化层</h4><ul>
-<li><p><strong>概念：</strong><br>规范化层（例如 Layer Normalization）用于对输入特征进行标准化处理，使得数据分布更均匀稳定。</p>
-</li>
-<li><p><strong>作用：</strong>  </p>
-<ul>
-<li>加速模型训练收敛，防止梯度爆炸或消失。  </li>
-<li>保证各层输出处于合理的数值范围内，提高整体稳定性。</li>
-</ul>
-</li>
-</ul>
-<h4 id="残差连接"><a href="#残差连接" class="headerlink" title="残差连接"></a>残差连接</h4><ul>
-<li><p><strong>概念：</strong><br>残差连接（Residual Connection）通过将输入直接加到输出上，形成捷径，帮助缓解深层网络中的梯度消失问题。</p>
-</li>
-<li><p><strong>作用：</strong>  </p>
-<ul>
-<li>促进深层网络中信息的传递。  </li>
-<li>提升训练效率，使得网络在堆叠多层后仍能保持良好性能。</li>
-</ul>
-</li>
-</ul>
-<h3 id="编码器部分"><a href="#编码器部分" class="headerlink" title="编码器部分"></a>编码器部分</h3><p><img src="/images/2.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/image-20250315140132700.png" alt="image-20250315140132700"></p>
-<p><strong>框架：</strong></p>
-<ol>
-<li>由 N 个解码器堆叠  </li>
-<li>每个编码器包含三个子层：<ul>
-<li><strong>第一个子层：</strong> 多头自注意力子层 + 规范化层 + 残差连接  </li>
-<li><strong>第二个子层：</strong> 多头注意力子层 + 规范化层 + 残差连接  </li>
-<li><strong>第三个子层：</strong> 前馈全连接子层 + 规范化层 + 残差连接</li>
-</ul>
-</li>
-</ol>
-<h2 id="Open-GPT不同版本对比"><a href="#Open-GPT不同版本对比" class="headerlink" title="Open GPT不同版本对比"></a>Open GPT不同版本对比</h2><h3 id="不同模型对比"><a href="#不同模型对比" class="headerlink" title="不同模型对比"></a>不同模型对比</h3><table>
+<h2 id="2-Open-GPT不同版本对比"><a href="#2-Open-GPT不同版本对比" class="headerlink" title="2. Open GPT不同版本对比"></a>2. Open GPT不同版本对比</h2><h3 id="2-1-不同模型对比"><a href="#2-1-不同模型对比" class="headerlink" title="2.1 不同模型对比"></a>2.1 不同模型对比</h3><table>
 <thead>
 <tr>
-<th><strong>模型</strong></th>
-<th><strong>结构</strong></th>
-<th><strong>位置编码</strong></th>
-<th><strong>激活函数</strong></th>
-<th><strong>Layer Norm方法</strong></th>
+<th>模型</th>
+<th>结构</th>
+<th>位置编码</th>
+<th>激活函数</th>
+<th>Layer Norm方法</th>
 </tr>
 </thead>
 <tbody><tr>
@@ -352,19 +305,19 @@
 <td>Pre Layer Norm</td>
 </tr>
 </tbody></table>
-<h3 id="GPT不同版本对比"><a href="#GPT不同版本对比" class="headerlink" title="GPT不同版本对比"></a>GPT不同版本对比</h3><table>
+<h3 id="2-2-GPT不同版本对比"><a href="#2-2-GPT不同版本对比" class="headerlink" title="2.2 GPT不同版本对比"></a>2.2 GPT不同版本对比</h3><table>
 <thead>
 <tr>
-<th><strong>对比维度</strong></th>
-<th><strong>GPT1</strong></th>
-<th><strong>GPT2</strong></th>
-<th><strong>GPT3</strong></th>
-<th><strong>GPT3.5</strong></th>
-<th><strong>GPT4.0</strong></th>
+<th>对比维度</th>
+<th>GPT1</th>
+<th>GPT2</th>
+<th>GPT3</th>
+<th>GPT3.5</th>
+<th>GPT4.0</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><strong>模型规模</strong></td>
+<td>模型规模</td>
 <td>117M</td>
 <td>1.5B</td>
 <td>175B</td>
@@ -372,7 +325,7 @@
 <td>万亿级别</td>
 </tr>
 <tr>
-<td><strong>Transformer层数</strong></td>
+<td>Transformer层数</td>
 <td>12</td>
 <td>48</td>
 <td>96</td>
@@ -380,31 +333,15 @@
 <td>120</td>
 </tr>
 <tr>
-<td><strong>预训练数据集</strong></td>
-<td>Books1, 英语维基百科</td>
-<td>Books1&#x2F;2, 英语维基百科, Web Text2, Common Crawl</td>
-<td>大量的互联网文本，如维基百科、新闻、小说、博客等</td>
-<td>未公开</td>
-<td>未公开</td>
+<td>主要贡献</td>
+<td>多任务学习</td>
+<td>prompt engineering</td>
+<td>少样本学习</td>
+<td>ChatGPT发布</td>
+<td>规模与性能提升</td>
 </tr>
 <tr>
-<td><strong>主要贡献</strong></td>
-<td>1) 提出了基于生成式预训练的语言理解方法</td>
-<td>1) 提出了无监督多任务学习的语言模型</td>
-<td>1) 引入了少样本学习的能力</td>
-<td>发布了全世界顶级的产品，ChatGPT, 让全世界都认识大模型</td>
-<td>1) 展示了预训练和训练数据集规模对模型性能的影响</td>
-</tr>
-<tr>
-<td></td>
-<td>2) 扩展了模型规模</td>
-<td>2) 提出了prompt engineering</td>
-<td>2) 展示了预训练和训练数据集规模对模型性能的提升</td>
-<td>3) 进一步增大了模型规模和训练数据集规模</td>
-<td>2) 展示了大模型在多种下游任务上的性能提升</td>
-</tr>
-<tr>
-<td><strong>发布日期</strong></td>
+<td>发布日期</td>
 <td>2018年</td>
 <td>2019年</td>
 <td>2020年</td>
@@ -443,7 +380,7 @@
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80"><span class="toc-number">1.</span> <span class="toc-text">Agent实战基础之大模型基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#transformer"><span class="toc-number">1.1.</span> <span class="toc-text">transformer</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E9%83%A8%E5%88%86"><span class="toc-number">1.1.1.</span> <span class="toc-text">输入部分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E5%B5%8C%E5%85%A5%E5%B1%82-Embedding"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">文本嵌入层 (Embedding)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%8D%E7%BD%AE%E7%BC%96%E7%A0%81%E5%99%A8-Positional-Encoding"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">位置编码器 (Positional Encoding)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%E9%83%A8%E5%88%86"><span class="toc-number">1.1.2.</span> <span class="toc-text">输出部分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E7%A0%81%E5%99%A8%E9%83%A8%E5%88%86"><span class="toc-number">1.1.3.</span> <span class="toc-text">解码器部分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A9%E7%A0%81%E5%BC%A0%E9%87%8F-mask"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">掩码张量 (mask)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6"><span class="toc-number">1.1.3.2.</span> <span class="toc-text">自注意力机制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E5%A4%B4%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6"><span class="toc-number">1.1.3.3.</span> <span class="toc-text">多头注意力机制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E9%A6%88%E5%85%A8%E8%BF%9E%E6%8E%A5%E5%B1%82"><span class="toc-number">1.1.3.4.</span> <span class="toc-text">前馈全连接层</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%84%E8%8C%83%E5%8C%96%E5%B1%82"><span class="toc-number">1.1.3.5.</span> <span class="toc-text">规范化层</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AE%8B%E5%B7%AE%E8%BF%9E%E6%8E%A5"><span class="toc-number">1.1.3.6.</span> <span class="toc-text">残差连接</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E7%A0%81%E5%99%A8%E9%83%A8%E5%88%86"><span class="toc-number">1.1.4.</span> <span class="toc-text">编码器部分</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Open-GPT%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC%E5%AF%B9%E6%AF%94"><span class="toc-number">1.2.</span> <span class="toc-text">Open GPT不同版本对比</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E5%90%8C%E6%A8%A1%E5%9E%8B%E5%AF%B9%E6%AF%94"><span class="toc-number">1.2.1.</span> <span class="toc-text">不同模型对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GPT%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC%E5%AF%B9%E6%AF%94"><span class="toc-number">1.2.2.</span> <span class="toc-text">GPT不同版本对比</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-transformer"><span class="toc-number">1.</span> <span class="toc-text">1. transformer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E8%BE%93%E5%85%A5%E9%83%A8%E5%88%86"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 输入部分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-1-%E6%A1%86%E6%9E%B6"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1.1 框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-2-%E7%BB%84%E4%BB%B6"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.1.2 组件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-2-1-%E6%96%87%E6%9C%AC%E5%B5%8C%E5%85%A5%E5%B1%82-Embedding"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">1.1.2.1 文本嵌入层 (Embedding)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-2-2-%E4%BD%8D%E7%BD%AE%E7%BC%96%E7%A0%81%E5%99%A8-Positional-Encoding"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">1.1.2.2 位置编码器 (Positional Encoding)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E8%BE%93%E5%87%BA%E9%83%A8%E5%88%86"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 输出部分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-1-%E6%A1%86%E6%9E%B6"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.2.1 框架</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-%E8%A7%A3%E7%A0%81%E5%99%A8%E9%83%A8%E5%88%86"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 解码器部分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-1-%E6%A1%86%E6%9E%B6"><span class="toc-number">1.3.1.</span> <span class="toc-text">1.3.1 框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-2-%E7%BB%84%E4%BB%B6"><span class="toc-number">1.3.2.</span> <span class="toc-text">1.3.2 组件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-2-1-%E6%8E%A9%E7%A0%81%E5%BC%A0%E9%87%8F-mask"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">1.3.2.1 掩码张量 (mask)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-2-2-%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6"><span class="toc-number">1.3.2.2.</span> <span class="toc-text">1.3.2.2 自注意力机制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-2-3-%E5%A4%9A%E5%A4%B4%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6"><span class="toc-number">1.3.2.3.</span> <span class="toc-text">1.3.2.3 多头注意力机制</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Open-GPT%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC%E5%AF%B9%E6%AF%94"><span class="toc-number">1.4.</span> <span class="toc-text">2. Open GPT不同版本对比</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E4%B8%8D%E5%90%8C%E6%A8%A1%E5%9E%8B%E5%AF%B9%E6%AF%94"><span class="toc-number">1.4.1.</span> <span class="toc-text">2.1 不同模型对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-GPT%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC%E5%AF%B9%E6%AF%94"><span class="toc-number">1.4.2.</span> <span class="toc-text">2.2 GPT不同版本对比</span></a></li></ol></li></ol></li></ol>
       </div>
     
 
