@@ -6,16 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta property="og:type" content="article">
+    <meta name="description" content="1. 大模型产业落地趋势1.1 业务融合阶段技术架构：各种办公类软件案例：    智能客服系统：集成到企业客服平台，提供自动化问答和问题解决。   人力资源系统：用于员工招聘、培训、绩效管理等场景。   内部知识管理：帮助企业整理和检索内部文档、流程和知识库。  特点：• 将AI技术嵌入现有办公软件，提升工作效率。• 主要用于辅助业务流程，而非独立决策。   1.2 辅助决策阶段技术架构：RAG（">
+<meta property="og:type" content="article">
 <meta property="og:title" content="6.Agent实战基础之Agent架构与落地方案">
 <meta property="og:url" content="http://example.com/2025/03/21/6.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8BAgent%E6%9E%B6%E6%9E%84%E4%B8%8E%E8%90%BD%E5%9C%B0%E6%96%B9%E6%A1%88/index.html">
 <meta property="og:site_name" content="cozy">
+<meta property="og:description" content="1. 大模型产业落地趋势1.1 业务融合阶段技术架构：各种办公类软件案例：    智能客服系统：集成到企业客服平台，提供自动化问答和问题解决。   人力资源系统：用于员工招聘、培训、绩效管理等场景。   内部知识管理：帮助企业整理和检索内部文档、流程和知识库。  特点：• 将AI技术嵌入现有办公软件，提升工作效率。• 主要用于辅助业务流程，而非独立决策。   1.2 辅助决策阶段技术架构：RAG（">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/6.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8BAgent%E6%9E%B6%E6%9E%84%E4%B8%8E%E8%90%BD%E5%9C%B0%E6%96%B9%E6%A1%88/image-20250323003827083.png">
+<meta property="og:image" content="http://example.com/images/6.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8BAgent%E6%9E%B6%E6%9E%84%E4%B8%8E%E8%90%BD%E5%9C%B0%E6%96%B9%E6%A1%88/image-20250323005439172.png">
+<meta property="og:image" content="http://example.com/images/6.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8BAgent%E6%9E%B6%E6%9E%84%E4%B8%8E%E8%90%BD%E5%9C%B0%E6%96%B9%E6%A1%88/image-20250323005451194.png">
 <meta property="article:published_time" content="2025-03-21T08:50:21.797Z">
-<meta property="article:modified_time" content="2025-03-21T09:09:31.134Z">
+<meta property="article:modified_time" content="2025-03-22T16:56:43.471Z">
 <meta property="article:author" content="cozy">
 <meta property="article:tag" content="工作">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/6.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8BAgent%E6%9E%B6%E6%9E%84%E4%B8%8E%E8%90%BD%E5%9C%B0%E6%96%B9%E6%A1%88/image-20250323003827083.png">
     
     
       
@@ -84,6 +90,8 @@
     <span id="actions">
       <ul>
         
+        <li><a class="icon" aria-label="上一篇" href="/2025/03/23/7.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8BReAct%E6%9E%B6%E6%9E%84%E5%AE%9E%E6%88%98/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
         
         <li><a class="icon" aria-label="下一篇" href="/2025/03/21/5.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%AE%9E%E6%88%98/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
@@ -113,6 +121,10 @@
 
     </div>
     
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%BA%A7%E4%B8%9A%E8%90%BD%E5%9C%B0%E8%B6%8B%E5%8A%BF"><span class="toc-number">1.</span> <span class="toc-text">1. 大模型产业落地趋势</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E4%B8%9A%E5%8A%A1%E8%9E%8D%E5%90%88%E9%98%B6%E6%AE%B5"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 业务融合阶段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E8%BE%85%E5%8A%A9%E5%86%B3%E7%AD%96%E9%98%B6%E6%AE%B5"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 辅助决策阶段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-%E8%87%AA%E4%B8%BB%E5%86%B3%E7%AD%96%E9%98%B6%E6%AE%B5"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 自主决策阶段</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Agent%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text">2. Agent原理剖析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-Agent%E8%AE%BE%E8%AE%A1%E7%90%86%E5%BF%B5"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 Agent设计理念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-Agent%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 Agent设计模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1-Reflection%EF%BC%88%E5%8F%8D%E5%B0%84%E6%A8%A1%E5%BC%8F%EF%BC%89"><span class="toc-number">2.2.1.</span> <span class="toc-text">2.2.1 Reflection（反射模式）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-2-Tools-Use%EF%BC%88%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%A8%A1%E5%BC%8F%EF%BC%89"><span class="toc-number">2.2.2.</span> <span class="toc-text">2.2.2 Tools Use（工具使用模式）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-3-%E6%80%9D%E7%BB%B4%E9%93%BE%E6%96%B9%E5%BC%8F%EF%BC%88%E8%A7%84%E5%88%92%E6%A8%A1%E5%BC%8F%EF%BC%89"><span class="toc-number">2.2.3.</span> <span class="toc-text">2.2.3 思维链方式（规划模式）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-4-%E5%A4%9AAgent%EF%BC%88%E5%A4%9A%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F%EF%BC%89"><span class="toc-number">2.2.4.</span> <span class="toc-text">2.2.4 多Agent（多代理模式）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Agent%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E8%90%BD%E5%9C%B0%E6%96%B9%E6%A1%88"><span class="toc-number">3.</span> <span class="toc-text">3. Agent架构设计落地方案</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-o1%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%87%BA%E7%8E%B0%E5%AF%B9Agent%E5%8F%91%E5%B1%95%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text">4. o1模型的出现对Agent发展的作用</span></a></li></ol>
+      </div>
     
   </span>
 </div>
@@ -161,7 +173,64 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    
+    <h1 id="1-大模型产业落地趋势"><a href="#1-大模型产业落地趋势" class="headerlink" title="1. 大模型产业落地趋势"></a>1. 大模型产业落地趋势</h1><h2 id="1-1-业务融合阶段"><a href="#1-1-业务融合阶段" class="headerlink" title="1.1 业务融合阶段"></a>1.1 业务融合阶段</h2><p><strong>技术架构</strong>：各种办公类软件<br><strong>案例</strong>：  </p>
+<ol>
+<li><strong>智能客服系统</strong>：集成到企业客服平台，提供自动化问答和问题解决。  </li>
+<li><strong>人力资源系统</strong>：用于员工招聘、培训、绩效管理等场景。  </li>
+<li><strong>内部知识管理</strong>：帮助企业整理和检索内部文档、流程和知识库。</li>
+</ol>
+<p><strong>特点</strong>：<br>• 将AI技术嵌入现有办公软件，提升工作效率。<br>• 主要用于辅助业务流程，而非独立决策。  </p>
+<h2 id="1-2-辅助决策阶段"><a href="#1-2-辅助决策阶段" class="headerlink" title="1.2 辅助决策阶段"></a>1.2 辅助决策阶段</h2><p><strong>技术架构</strong>：RAG（Retrieval-Augmented Generation）架构构建知识库<br><strong>案例</strong>：  </p>
+<ol>
+<li><strong>医生助手系统</strong>：结合医学知识库，为医生提供诊断建议和治疗方案。  </li>
+<li><strong>法律咨询服务</strong>：基于法律条文和案例库，提供法律建议和风险评估。  </li>
+<li><strong>金融风险管理</strong>：分析金融市场数据，提供风险预警和投资建议。  </li>
+<li><strong>教育辅导</strong>：根据学生需求，提供个性化学习计划和答疑服务。  </li>
+<li><strong>智能旅游系统</strong>：结合旅游数据，为用户推荐行程和景点。</li>
+</ol>
+<p><strong>特点</strong>：<br>• 通过知识库增强AI的决策能力，提供更专业的建议。<br>• 主要用于辅助人类决策，而非完全自主决策。  </p>
+<h2 id="1-3-自主决策阶段"><a href="#1-3-自主决策阶段" class="headerlink" title="1.3 自主决策阶段"></a>1.3 自主决策阶段</h2><p><strong>技术架构</strong>：Agent（智能代理）<br><strong>案例</strong>：<br>• <strong>自动化任务执行</strong>：如自动调度、资源分配、流程优化等。<br>• <strong>智能机器人</strong>：在无人干预的情况下完成复杂任务，如仓储管理、自动驾驶等。  </p>
+<p><strong>特点</strong>：<br>• AI能够独立分析、决策和执行任务，无需人类干预。<br>• 适用于高度自动化和复杂决策的场景。 </p>
+<h1 id="2-Agent原理剖析"><a href="#2-Agent原理剖析" class="headerlink" title="2. Agent原理剖析"></a>2. Agent原理剖析</h1><h2 id="2-1-Agent设计理念"><a href="#2-1-Agent设计理念" class="headerlink" title="2.1 Agent设计理念"></a>2.1 Agent设计理念</h2><p><img src="/images/6.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8BAgent%E6%9E%B6%E6%9E%84%E4%B8%8E%E8%90%BD%E5%9C%B0%E6%96%B9%E6%A1%88/image-20250323003827083.png" alt="image-20250323003827083"></p>
+<h2 id="2-2-Agent设计模式"><a href="#2-2-Agent设计模式" class="headerlink" title="2.2 Agent设计模式"></a>2.2 Agent设计模式</h2><h3 id="2-2-1-Reflection（反射模式）"><a href="#2-2-1-Reflection（反射模式）" class="headerlink" title="2.2.1 Reflection（反射模式）"></a>2.2.1 Reflection（反射模式）</h3><p><strong>定义</strong>：反射模式允许AI Agent审视自身生成的输出，并进行自我修正。这种自我监督的能力使得AI能够在执行任务时不断优化策略，提高准确性和效率。</p>
+<p><strong>示例</strong>：一个AI Agent可能会生成一段代码，然后自我检查并修复潜在的错误，从而提升代码质量。</p>
+<p><strong>关键点</strong>：<br>• <strong>自我监督</strong>：AI能够自我检查和修正。<br>• <strong>优化策略</strong>：通过反思，AI能够不断改进其策略。<br>• <strong>提高效率</strong>：通过减少错误和优化输出，AI能够更高效地完成任务。</p>
+<h3 id="2-2-2-Tools-Use（工具使用模式）"><a href="#2-2-2-Tools-Use（工具使用模式）" class="headerlink" title="2.2.2 Tools Use（工具使用模式）"></a>2.2.2 Tools Use（工具使用模式）</h3><p><strong>定义</strong>：工具使用模式是指AI Agent能够调用外部工具和API来增强自身的功能。这种模式使得AI能够超越自身的知识库，通过与外部系统的交互来获取信息、执行操作或生成内容，极大地扩展了AI的应用范围和灵活性。</p>
+<p><strong>示例</strong>：AI可以通过调用天气API来获取实时天气信息，或者通过调用翻译API来实现多语言翻译。</p>
+<p><strong>关键点</strong>：<br>• <strong>外部工具</strong>：AI能够使用外部工具和API。<br>• <strong>增强功能</strong>：通过工具使用，AI的功能得到扩展。<br>• <strong>灵活性</strong>：AI能够适应多种任务和场景。</p>
+<h3 id="2-2-3-思维链方式（规划模式）"><a href="#2-2-3-思维链方式（规划模式）" class="headerlink" title="2.2.3 思维链方式（规划模式）"></a>2.2.3 思维链方式（规划模式）</h3><p><strong>定义</strong>：规划模式赋予AI Agent将复杂任务分解为多个步骤并有序执行的能力。通过这种方式，AI能够更系统地处理问题，制定出有效的行动计划，并按照计划逐步推进任务完成。</p>
+<p><strong>示例</strong>：在市场分析中，AI可以将任务分解为数据收集、数据分析、趋势预测等步骤，并逐步完成。</p>
+<p><strong>关键点</strong>：<br>• <strong>任务分解</strong>：AI能够将复杂任务分解为多个步骤。<br>• <strong>系统处理</strong>：AI能够更系统地处理问题。<br>• <strong>有效计划</strong>：AI能够制定并执行有效的行动计划。</p>
+<h3 id="2-2-4-多Agent（多代理模式）"><a href="#2-2-4-多Agent（多代理模式）" class="headerlink" title="2.2.4 多Agent（多代理模式）"></a>2.2.4 多Agent（多代理模式）</h3><p><strong>定义</strong>：多Agent模式涉及多个AI Agent之间的合作。通过这种模式，不同的AI Agent可以扮演不同的角色，共同完成一个复杂的任务。这种协作不仅能够模拟真实世界中的团队工作流程，还能够通过代理间的互补和协同作用，提高整体的执行效率和创新能力。</p>
+<p><strong>示例</strong>：在项目管理中，不同的AI Agent可以分别负责任务分配、进度跟踪、资源管理等，共同完成项目。</p>
+<p><strong>关键点</strong>：<br>• <strong>角色分工</strong>：不同的AI Agent扮演不同的角色。<br>• <strong>团队协作</strong>：模拟真实世界中的团队工作流程。<br>• <strong>协同作用</strong>：通过代理间的互补和协同，提高效率和创新能力。</p>
+<h1 id="3-Agent架构设计落地方案"><a href="#3-Agent架构设计落地方案" class="headerlink" title="3. Agent架构设计落地方案"></a>3. Agent架构设计落地方案</h1><table>
+<thead>
+<tr>
+<th><strong>方案</strong></th>
+<th><strong>技术选型</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>方案1</strong>：适合公司内部快速实现一些简单的需求，但不开源。</td>
+<td>COZE (扣子)，Dify 等</td>
+</tr>
+<tr>
+<td><strong>方案2</strong>：适合公司内部快速实现一些需求，可基于其进行二次开发。</td>
+<td>MetaGPT, AutoGen 等</td>
+</tr>
+<tr>
+<td><strong>方案3</strong>：适合专职的做大模型应用开发工程师。</td>
+<td>LangChain (Agents, LangGraph) 等，Spring AI Alibaba，Swarm</td>
+</tr>
+<tr>
+<td><strong>方案4</strong>：适合专职的做大模型应用开发工程师。</td>
+<td>不用</td>
+</tr>
+</tbody></table>
+<h1 id="4-o1模型的出现对Agent发展的作用"><a href="#4-o1模型的出现对Agent发展的作用" class="headerlink" title="4. o1模型的出现对Agent发展的作用"></a>4. o1模型的出现对Agent发展的作用</h1><p><img src="/images/6.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8BAgent%E6%9E%B6%E6%9E%84%E4%B8%8E%E8%90%BD%E5%9C%B0%E6%96%B9%E6%A1%88/image-20250323005439172.png" alt="image-20250323005439172"></p>
+<p><img src="/images/6.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8BAgent%E6%9E%B6%E6%9E%84%E4%B8%8E%E8%90%BD%E5%9C%B0%E6%96%B9%E6%A1%88/image-20250323005451194.png" alt="image-20250323005451194"></p>
+
   </div>
 </article>
 
@@ -191,6 +260,10 @@
 
     
     
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%BA%A7%E4%B8%9A%E8%90%BD%E5%9C%B0%E8%B6%8B%E5%8A%BF"><span class="toc-number">1.</span> <span class="toc-text">1. 大模型产业落地趋势</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E4%B8%9A%E5%8A%A1%E8%9E%8D%E5%90%88%E9%98%B6%E6%AE%B5"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 业务融合阶段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E8%BE%85%E5%8A%A9%E5%86%B3%E7%AD%96%E9%98%B6%E6%AE%B5"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 辅助决策阶段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-%E8%87%AA%E4%B8%BB%E5%86%B3%E7%AD%96%E9%98%B6%E6%AE%B5"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 自主决策阶段</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Agent%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text">2. Agent原理剖析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-Agent%E8%AE%BE%E8%AE%A1%E7%90%86%E5%BF%B5"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 Agent设计理念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-Agent%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 Agent设计模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1-Reflection%EF%BC%88%E5%8F%8D%E5%B0%84%E6%A8%A1%E5%BC%8F%EF%BC%89"><span class="toc-number">2.2.1.</span> <span class="toc-text">2.2.1 Reflection（反射模式）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-2-Tools-Use%EF%BC%88%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%A8%A1%E5%BC%8F%EF%BC%89"><span class="toc-number">2.2.2.</span> <span class="toc-text">2.2.2 Tools Use（工具使用模式）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-3-%E6%80%9D%E7%BB%B4%E9%93%BE%E6%96%B9%E5%BC%8F%EF%BC%88%E8%A7%84%E5%88%92%E6%A8%A1%E5%BC%8F%EF%BC%89"><span class="toc-number">2.2.3.</span> <span class="toc-text">2.2.3 思维链方式（规划模式）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-4-%E5%A4%9AAgent%EF%BC%88%E5%A4%9A%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F%EF%BC%89"><span class="toc-number">2.2.4.</span> <span class="toc-text">2.2.4 多Agent（多代理模式）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Agent%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E8%90%BD%E5%9C%B0%E6%96%B9%E6%A1%88"><span class="toc-number">3.</span> <span class="toc-text">3. Agent架构设计落地方案</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-o1%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%87%BA%E7%8E%B0%E5%AF%B9Agent%E5%8F%91%E5%B1%95%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text">4. o1模型的出现对Agent发展的作用</span></a></li></ol>
+      </div>
+    
 
     <div id="share-footer" style="display: none">
       <ul>
@@ -211,6 +284,8 @@
 
     <div id="actions-footer">
         <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
         
         <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
         <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
