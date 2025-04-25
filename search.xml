@@ -4,6 +4,231 @@
   
     
     <entry>
+      <title>20.DeepSeek专题之大模型API实战</title>
+      <link href="/2025/04/25/20.DeepSeek%E4%B8%93%E9%A2%98%E4%B9%8B%E5%A4%A7%E6%A8%A1%E5%9E%8BAPI%E5%AE%9E%E6%88%98/"/>
+      <url>/2025/04/25/20.DeepSeek%E4%B8%93%E9%A2%98%E4%B9%8B%E5%A4%A7%E6%A8%A1%E5%9E%8BAPI%E5%AE%9E%E6%88%98/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> AI大模型开发工程师 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 工作 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>19.RAG项目实战:高性能RAG商业项目</title>
+      <link href="/2025/04/25/19.RAG%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E9%AB%98%E6%80%A7%E8%83%BDRAG%E5%95%86%E4%B8%9A%E9%A1%B9%E7%9B%AE/"/>
+      <url>/2025/04/25/19.RAG%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E9%AB%98%E6%80%A7%E8%83%BDRAG%E5%95%86%E4%B8%9A%E9%A1%B9%E7%9B%AE/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> AI大模型开发工程师 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 工作 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>18.RAG实战进阶之GraphRAG实战(无)</title>
+      <link href="/2025/04/25/18.RAG%E5%AE%9E%E6%88%98%E8%BF%9B%E9%98%B6%E4%B9%8BGraphRAG%E5%AE%9E%E6%88%98/"/>
+      <url>/2025/04/25/18.RAG%E5%AE%9E%E6%88%98%E8%BF%9B%E9%98%B6%E4%B9%8BGraphRAG%E5%AE%9E%E6%88%98/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> AI大模型开发工程师 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 工作 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>17.RAG实战基础之性能优化</title>
+      <link href="/2025/04/25/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+      <url>/2025/04/25/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</url>
+      
+        <content type="html"><![CDATA[<h1 id="1-表格数据处理方案"><a href="#1-表格数据处理方案" class="headerlink" title="1. 表格数据处理方案"></a>1. <strong>表格数据处理方案</strong></h1><p><img src="/images/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250425184502707.png" alt="image-20250425184502707"></p><p><img src="/images/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250425184528708.png" alt="image-20250425184528708"></p><p><img src="/images/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250425184542761.png" alt="image-20250425184542761"></p><h1 id="2-相似度不准问题"><a href="#2-相似度不准问题" class="headerlink" title="2. 相似度不准问题"></a>2. <strong>相似度不准问题</strong></h1><p><img src="/images/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250425184629258.png" alt="image-20250425184629258"></p><p><img src="/images/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250425184638602.png" alt="image-20250425184638602"></p><p><img src="/images/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250425184647666.png" alt="image-20250425184647666"></p><h1 id="3-幻觉问题"><a href="#3-幻觉问题" class="headerlink" title="3. 幻觉问题"></a>3. <strong>幻觉问题</strong></h1><p><img src="/images/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250425184822284.png" alt="image-20250425184822284"></p><p><img src="/images/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250425184831453.png" alt="image-20250425184831453"></p><h1 id="4-语义相似度缓存一致性方案"><a href="#4-语义相似度缓存一致性方案" class="headerlink" title="4. 语义相似度缓存一致性方案"></a>4. 语义相似度缓存一致性方案</h1><p><img src="/images/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250425184926315.png" alt="image-20250425184926315"></p><h1 id="5-设计反馈机制"><a href="#5-设计反馈机制" class="headerlink" title="5. 设计反馈机制"></a>5. <strong>设计反馈机制</strong></h1><p><img src="/images/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250425184943750.png" alt="image-20250425184943750"></p><h1 id="6-设置可解释性"><a href="#6-设置可解释性" class="headerlink" title="6. 设置可解释性"></a>6. <strong>设置可解释性</strong></h1><p><img src="/images/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250425184955928.png" alt="image-20250425184955928"></p><h1 id="7-推理资源设计"><a href="#7-推理资源设计" class="headerlink" title="7. 推理资源设计"></a>7. <strong>推理资源设计</strong></h1><p><img src="/images/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250425185050213.png" alt="image-20250425185050213"></p><p><img src="/images/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250425185105680.png" alt="image-20250425185105680"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> AI大模型开发工程师 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 工作 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>16.RAG实战基础之RAG技术选型</title>
+      <link href="/2025/04/25/16.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8BRAG%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B/"/>
+      <url>/2025/04/25/16.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8BRAG%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B/</url>
+      
+        <content type="html"><![CDATA[<h1 id="1-向量库的选择"><a href="#1-向量库的选择" class="headerlink" title="1. 向量库的选择"></a>1. 向量库的选择</h1><p><img src="/images/16.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8BRAG%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B/image-20250425164703517.png" alt="image-20250425164703517"></p><p><img src="/images/16.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8BRAG%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B/image-20250425164713390.png" alt="image-20250425164713390"></p><p><img src="/images/16.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8BRAG%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B/image-20250425164722426.png" alt="image-20250425164722426"></p><p><img src="/images/16.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8BRAG%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B/image-20250425165146371.png" alt="image-20250425165146371"></p><h1 id="2-RAG常见的落地方案"><a href="#2-RAG常见的落地方案" class="headerlink" title="2. RAG常见的落地方案"></a>2. <strong>RAG常见的落地方案</strong></h1><p><img src="/images/16.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8BRAG%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B/image-20250425165528390.png" alt="image-20250425165528390"></p><h1 id="3-RAG在线开发平台"><a href="#3-RAG在线开发平台" class="headerlink" title="3. RAG在线开发平台"></a>3. <strong>RAG在线开发平台</strong></h1><p><img src="/images/16.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8BRAG%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B/image-20250425165729693.png" alt="image-20250425165729693"></p><h1 id="4-优秀的RAG的开源项目"><a href="#4-优秀的RAG的开源项目" class="headerlink" title="4. 优秀的RAG的开源项目"></a>4. <strong>优秀的RAG的开源项目</strong></h1><p><img src="/images/16.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8BRAG%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B/image-20250425170007975.png" alt="image-20250425170007975"></p><p><img src="/images/16.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8BRAG%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B/image-20250425170019832.png" alt="image-20250425170019832"></p><h1 id="5-RAG的效果评估工具"><a href="#5-RAG的效果评估工具" class="headerlink" title="5. RAG的效果评估工具"></a>5. <strong>RAG的效果评估工具</strong></h1><p><img src="/images/16.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8BRAG%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B/image-20250425170555845.png" alt="image-20250425170555845"></p><p><img src="/images/16.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8BRAG%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B/image-20250425170607597.png" alt="image-20250425170607597"><img src="/images/16.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8BRAG%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B/image-20250425171519713.png" alt="image-20250425171519713"></p><h1 id="6-技术方案分享"><a href="#6-技术方案分享" class="headerlink" title="6. 技术方案分享"></a>6. <strong>技术方案分享</strong></h1><p><img src="/images/16.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8BRAG%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B/image-20250425172308260.png" alt="image-20250425172308260"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> AI大模型开发工程师 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 工作 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>15.RAG实战基础之RAG架构演进之路</title>
+      <link href="/2025/04/25/15.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8BRAG%E6%9E%B6%E6%9E%84%E6%BC%94%E8%BF%9B%E4%B9%8B%E8%B7%AF/"/>
+      <url>/2025/04/25/15.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8BRAG%E6%9E%B6%E6%9E%84%E6%BC%94%E8%BF%9B%E4%B9%8B%E8%B7%AF/</url>
+      
+        <content type="html"><![CDATA[<h1 id="1-RAG-架构原理深度剖析"><a href="#1-RAG-架构原理深度剖析" class="headerlink" title="1. RAG 架构原理深度剖析"></a>1. <strong>RAG 架构原理深度剖析</strong></h1><p>大模型幻觉问题：</p><ol><li><p>提示词工程</p></li><li><p>RAG</p></li></ol><p>大模型知识有限：</p><ol><li><p>微调</p></li><li><p>RAG</p></li></ol><p><img src="/images/15.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8BRAG%E6%9E%B6%E6%9E%84%E6%BC%94%E8%BF%9B%E4%B9%8B%E8%B7%AF/image-20250425003606443.png" alt="image-20250425003606443"></p><p>加载文件-切割-嵌入向量数据库-检索-重排序</p><h1 id="2-RAG-架构演进之路"><a href="#2-RAG-架构演进之路" class="headerlink" title="2. RAG 架构演进之路"></a>2. RAG 架构演进之路</h1><p><img src="/images/15.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8BRAG%E6%9E%B6%E6%9E%84%E6%BC%94%E8%BF%9B%E4%B9%8B%E8%B7%AF/image-20250425155458749.png" alt="image-20250425155458749"></p><p><img src="/images/15.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8BRAG%E6%9E%B6%E6%9E%84%E6%BC%94%E8%BF%9B%E4%B9%8B%E8%B7%AF/image-20250425163542307.png" alt="image-20250425163542307"></p><p><img src="/images/15.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8BRAG%E6%9E%B6%E6%9E%84%E6%BC%94%E8%BF%9B%E4%B9%8B%E8%B7%AF/image-20250425163555369.png" alt="image-20250425163555369"></p><p><img src="/images/15.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8BRAG%E6%9E%B6%E6%9E%84%E6%BC%94%E8%BF%9B%E4%B9%8B%E8%B7%AF/image-20250425163845612.png" alt="image-20250425163845612"></p><h1 id="3-微调和-RAG-方案选型"><a href="#3-微调和-RAG-方案选型" class="headerlink" title="3. 微调和 RAG 方案选型"></a>3. 微调和 RAG 方案选型</h1><p><img src="/images/15.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8BRAG%E6%9E%B6%E6%9E%84%E6%BC%94%E8%BF%9B%E4%B9%8B%E8%B7%AF/image-20250425164143193.png" alt="image-20250425164143193"></p><p><img src="/images/15.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8BRAG%E6%9E%B6%E6%9E%84%E6%BC%94%E8%BF%9B%E4%B9%8B%E8%B7%AF/image-20250425164150665.png" alt="image-20250425164150665"></p><h1 id="4-RAG-的应用落地场景"><a href="#4-RAG-的应用落地场景" class="headerlink" title="4. RAG 的应用落地场景"></a>4. RAG 的应用落地场景</h1><p><img src="/images/15.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8BRAG%E6%9E%B6%E6%9E%84%E6%BC%94%E8%BF%9B%E4%B9%8B%E8%B7%AF/image-20250425164246962.png" alt="image-20250425164246962"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> AI大模型开发工程师 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 工作 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>14.Agent大型项目实战3:ChatBI即席查询平台（无）</title>
+      <link href="/2025/04/25/14.Agent%E5%A4%A7%E5%9E%8B%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%983ChatBI%E5%8D%B3%E5%B8%AD%E6%9F%A5%E8%AF%A2%E5%B9%B3%E5%8F%B0/"/>
+      <url>/2025/04/25/14.Agent%E5%A4%A7%E5%9E%8B%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%983ChatBI%E5%8D%B3%E5%B8%AD%E6%9F%A5%E8%AF%A2%E5%B9%B3%E5%8F%B0/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> AI大模型开发工程师 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 工作 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>13.Agent大型项目实战2:多模态Agent商业平台(无)</title>
+      <link href="/2025/04/25/13.Agent%E5%A4%A7%E5%9E%8B%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%982%E5%A4%9A%E6%A8%A1%E6%80%81Agent%E5%95%86%E4%B8%9A%E5%B9%B3%E5%8F%B0/"/>
+      <url>/2025/04/25/13.Agent%E5%A4%A7%E5%9E%8B%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%982%E5%A4%9A%E6%A8%A1%E6%80%81Agent%E5%95%86%E4%B8%9A%E5%B9%B3%E5%8F%B0/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> AI大模型开发工程师 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 工作 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>12.Agent大型项目实战1:百亿级智能数据分析平台</title>
+      <link href="/2025/04/21/12.Agent%E5%A4%A7%E5%9E%8B%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%981%E7%99%BE%E4%BA%BF%E7%BA%A7%E6%99%BA%E8%83%BD%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B9%B3%E5%8F%B0/"/>
+      <url>/2025/04/21/12.Agent%E5%A4%A7%E5%9E%8B%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%981%E7%99%BE%E4%BA%BF%E7%BA%A7%E6%99%BA%E8%83%BD%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B9%B3%E5%8F%B0/</url>
+      
+        <content type="html"><![CDATA[<h1 id="1-iQuery-Agent详细设计方案"><a href="#1-iQuery-Agent详细设计方案" class="headerlink" title="1. iQuery Agent详细设计方案"></a>1. iQuery Agent详细设计方案</h1><p><img src="/images/12.Agent%E5%A4%A7%E5%9E%8B%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%981%E7%99%BE%E4%BA%BF%E7%BA%A7%E6%99%BA%E8%83%BD%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B9%B3%E5%8F%B0/image-20250421221650209.png" alt="image-20250421221650209"></p><p><img src="/images/12.Agent%E5%A4%A7%E5%9E%8B%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%981%E7%99%BE%E4%BA%BF%E7%BA%A7%E6%99%BA%E8%83%BD%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B9%B3%E5%8F%B0/image-20250421221824181.png" alt="image-20250421221824181"></p><p><img src="/images/12.Agent%E5%A4%A7%E5%9E%8B%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%981%E7%99%BE%E4%BA%BF%E7%BA%A7%E6%99%BA%E8%83%BD%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B9%B3%E5%8F%B0/image-20250421221919012.png" alt="image-20250421221919012"></p><p>​<img src="/images/12.Agent%E5%A4%A7%E5%9E%8B%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%981%E7%99%BE%E4%BA%BF%E7%BA%A7%E6%99%BA%E8%83%BD%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B9%B3%E5%8F%B0/image-20250421221949810.png" alt="image-20250421221949810"></p><h1 id="2-iQuery-Agent项目地址"><a href="#2-iQuery-Agent项目地址" class="headerlink" title="2. iQuery Agent项目地址"></a>2. iQuery Agent项目地址</h1><p><a href="https://github.com/hughnwj/iQuery-Agent">https://github.com/hughnwj/iQuery-Agent</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> AI大模型开发工程师 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 工作 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>11.Agent实战技能之LangGraph深度实战</title>
       <link href="/2025/04/01/11.Agent%E5%AE%9E%E6%88%98%E6%8A%80%E8%83%BD%E4%B9%8BLangGraph%E6%B7%B1%E5%BA%A6%E5%AE%9E%E6%88%98/"/>
       <url>/2025/04/01/11.Agent%E5%AE%9E%E6%88%98%E6%8A%80%E8%83%BD%E4%B9%8BLangGraph%E6%B7%B1%E5%BA%A6%E5%AE%9E%E6%88%98/</url>
@@ -54,7 +279,7 @@
     
     
     <entry>
-      <title>9.Agent实战技能之Assistants API</title>
+      <title>9.Agent实战技能之Assistants API（无）</title>
       <link href="/2025/03/24/9.Agent%E5%AE%9E%E6%88%98%E6%8A%80%E8%83%BD%E4%B9%8BAssistants%20API/"/>
       <url>/2025/03/24/9.Agent%E5%AE%9E%E6%88%98%E6%8A%80%E8%83%BD%E4%B9%8BAssistants%20API/</url>
       
@@ -154,7 +379,7 @@
     
     
     <entry>
-      <title>5.Agent实战基础之多模态大模型实战</title>
+      <title>5.Agent实战基础之多模态大模型实战（无）</title>
       <link href="/2025/03/21/5.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%AE%9E%E6%88%98/"/>
       <url>/2025/03/21/5.Agent%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%AE%9E%E6%88%98/</url>
       

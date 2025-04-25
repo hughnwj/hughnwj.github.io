@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="1. 表格数据处理方案   2. 相似度不准问题   3. 幻觉问题  4. 语义相似度缓存一致性方案 5. 设计反馈机制 6. 设置可解释性 7. 推理资源设计">
+<meta property="og:type" content="article">
+<meta property="og:title" content="17.RAG实战基础之性能优化">
+<meta property="og:url" content="http://example.com/2025/04/25/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/index.html">
+<meta property="og:site_name" content="cozy">
+<meta property="og:description" content="1. 表格数据处理方案   2. 相似度不准问题   3. 幻觉问题  4. 语义相似度缓存一致性方案 5. 设计反馈机制 6. 设置可解释性 7. 推理资源设计">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250425184502707.png">
+<meta property="og:image" content="http://example.com/images/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250425184528708.png">
+<meta property="og:image" content="http://example.com/images/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250425184542761.png">
+<meta property="og:image" content="http://example.com/images/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250425184629258.png">
+<meta property="og:image" content="http://example.com/images/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250425184638602.png">
+<meta property="og:image" content="http://example.com/images/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250425184647666.png">
+<meta property="og:image" content="http://example.com/images/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250425184822284.png">
+<meta property="og:image" content="http://example.com/images/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250425184831453.png">
+<meta property="og:image" content="http://example.com/images/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250425184926315.png">
+<meta property="og:image" content="http://example.com/images/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250425184943750.png">
+<meta property="og:image" content="http://example.com/images/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250425184955928.png">
+<meta property="og:image" content="http://example.com/images/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250425185050213.png">
+<meta property="og:image" content="http://example.com/images/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250425185105680.png">
+<meta property="article:published_time" content="2025-04-25T09:25:46.260Z">
+<meta property="article:modified_time" content="2025-04-25T10:51:23.353Z">
+<meta property="article:author" content="cozy">
+<meta property="article:tag" content="工作">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250425184502707.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>17.RAG实战基础之性能优化</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/hughnwj">项目</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2025/04/25/18.RAG%E5%AE%9E%E6%88%98%E8%BF%9B%E9%98%B6%E4%B9%8BGraphRAG%E5%AE%9E%E6%88%98/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2025/04/25/16.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8BRAG%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2025/04/25/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2025/04/25/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/&text=17.RAG实战基础之性能优化"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2025/04/25/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/&title=17.RAG实战基础之性能优化"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2025/04/25/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/&is_video=false&description=17.RAG实战基础之性能优化"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=17.RAG实战基础之性能优化&body=Check out this article: http://example.com/2025/04/25/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2025/04/25/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/&title=17.RAG实战基础之性能优化"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2025/04/25/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/&title=17.RAG实战基础之性能优化"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2025/04/25/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/&title=17.RAG实战基础之性能优化"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2025/04/25/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/&title=17.RAG实战基础之性能优化"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2025/04/25/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/&name=17.RAG实战基础之性能优化&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2025/04/25/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/&t=17.RAG实战基础之性能优化"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E8%A1%A8%E6%A0%BC%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E6%96%B9%E6%A1%88"><span class="toc-number">1.</span> <span class="toc-text">1. 表格数据处理方案</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E7%9B%B8%E4%BC%BC%E5%BA%A6%E4%B8%8D%E5%87%86%E9%97%AE%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">2. 相似度不准问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E5%B9%BB%E8%A7%89%E9%97%AE%E9%A2%98"><span class="toc-number">3.</span> <span class="toc-text">3. 幻觉问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E8%AF%AD%E4%B9%89%E7%9B%B8%E4%BC%BC%E5%BA%A6%E7%BC%93%E5%AD%98%E4%B8%80%E8%87%B4%E6%80%A7%E6%96%B9%E6%A1%88"><span class="toc-number">4.</span> <span class="toc-text">4. 语义相似度缓存一致性方案</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E8%AE%BE%E8%AE%A1%E5%8F%8D%E9%A6%88%E6%9C%BA%E5%88%B6"><span class="toc-number">5.</span> <span class="toc-text">5. 设计反馈机制</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-%E8%AE%BE%E7%BD%AE%E5%8F%AF%E8%A7%A3%E9%87%8A%E6%80%A7"><span class="toc-number">6.</span> <span class="toc-text">6. 设置可解释性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-%E6%8E%A8%E7%90%86%E8%B5%84%E6%BA%90%E8%AE%BE%E8%AE%A1"><span class="toc-number">7.</span> <span class="toc-text">7. 推理资源设计</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        17.RAG实战基础之性能优化
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">cozy</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2025-04-25T09:25:46.260Z" class="dt-published" itemprop="datePublished">2025-04-25</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/AI%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%8F%91%E5%B7%A5%E7%A8%8B%E5%B8%88/">AI大模型开发工程师</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/%E5%B7%A5%E4%BD%9C/" rel="tag">工作</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 id="1-表格数据处理方案"><a href="#1-表格数据处理方案" class="headerlink" title="1. 表格数据处理方案"></a>1. <strong>表格数据处理方案</strong></h1><p><img src="/images/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250425184502707.png" alt="image-20250425184502707"></p>
+<p><img src="/images/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250425184528708.png" alt="image-20250425184528708"></p>
+<p><img src="/images/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250425184542761.png" alt="image-20250425184542761"></p>
+<h1 id="2-相似度不准问题"><a href="#2-相似度不准问题" class="headerlink" title="2. 相似度不准问题"></a>2. <strong>相似度不准问题</strong></h1><p><img src="/images/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250425184629258.png" alt="image-20250425184629258"></p>
+<p><img src="/images/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250425184638602.png" alt="image-20250425184638602"></p>
+<p><img src="/images/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250425184647666.png" alt="image-20250425184647666"></p>
+<h1 id="3-幻觉问题"><a href="#3-幻觉问题" class="headerlink" title="3. 幻觉问题"></a>3. <strong>幻觉问题</strong></h1><p><img src="/images/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250425184822284.png" alt="image-20250425184822284"></p>
+<p><img src="/images/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250425184831453.png" alt="image-20250425184831453"></p>
+<h1 id="4-语义相似度缓存一致性方案"><a href="#4-语义相似度缓存一致性方案" class="headerlink" title="4. 语义相似度缓存一致性方案"></a>4. 语义相似度缓存一致性方案</h1><p><img src="/images/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250425184926315.png" alt="image-20250425184926315"></p>
+<h1 id="5-设计反馈机制"><a href="#5-设计反馈机制" class="headerlink" title="5. 设计反馈机制"></a>5. <strong>设计反馈机制</strong></h1><p><img src="/images/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250425184943750.png" alt="image-20250425184943750"></p>
+<h1 id="6-设置可解释性"><a href="#6-设置可解释性" class="headerlink" title="6. 设置可解释性"></a>6. <strong>设置可解释性</strong></h1><p><img src="/images/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250425184955928.png" alt="image-20250425184955928"></p>
+<h1 id="7-推理资源设计"><a href="#7-推理资源设计" class="headerlink" title="7. 推理资源设计"></a>7. <strong>推理资源设计</strong></h1><p><img src="/images/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250425185050213.png" alt="image-20250425185050213"></p>
+<p><img src="/images/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250425185105680.png" alt="image-20250425185105680"></p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="https://github.com/hughnwj">项目</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E8%A1%A8%E6%A0%BC%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E6%96%B9%E6%A1%88"><span class="toc-number">1.</span> <span class="toc-text">1. 表格数据处理方案</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E7%9B%B8%E4%BC%BC%E5%BA%A6%E4%B8%8D%E5%87%86%E9%97%AE%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">2. 相似度不准问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E5%B9%BB%E8%A7%89%E9%97%AE%E9%A2%98"><span class="toc-number">3.</span> <span class="toc-text">3. 幻觉问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E8%AF%AD%E4%B9%89%E7%9B%B8%E4%BC%BC%E5%BA%A6%E7%BC%93%E5%AD%98%E4%B8%80%E8%87%B4%E6%80%A7%E6%96%B9%E6%A1%88"><span class="toc-number">4.</span> <span class="toc-text">4. 语义相似度缓存一致性方案</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E8%AE%BE%E8%AE%A1%E5%8F%8D%E9%A6%88%E6%9C%BA%E5%88%B6"><span class="toc-number">5.</span> <span class="toc-text">5. 设计反馈机制</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-%E8%AE%BE%E7%BD%AE%E5%8F%AF%E8%A7%A3%E9%87%8A%E6%80%A7"><span class="toc-number">6.</span> <span class="toc-text">6. 设置可解释性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-%E6%8E%A8%E7%90%86%E8%B5%84%E6%BA%90%E8%AE%BE%E8%AE%A1"><span class="toc-number">7.</span> <span class="toc-text">7. 推理资源设计</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2025/04/25/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2025/04/25/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/&text=17.RAG实战基础之性能优化"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2025/04/25/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/&title=17.RAG实战基础之性能优化"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2025/04/25/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/&is_video=false&description=17.RAG实战基础之性能优化"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=17.RAG实战基础之性能优化&body=Check out this article: http://example.com/2025/04/25/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2025/04/25/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/&title=17.RAG实战基础之性能优化"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2025/04/25/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/&title=17.RAG实战基础之性能优化"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2025/04/25/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/&title=17.RAG实战基础之性能优化"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2025/04/25/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/&title=17.RAG实战基础之性能优化"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2025/04/25/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/&name=17.RAG实战基础之性能优化&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2025/04/25/17.RAG%E5%AE%9E%E6%88%98%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/&t=17.RAG实战基础之性能优化"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2025
+    cozy
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/hughnwj">项目</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
