@@ -6,16 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta property="og:type" content="article">
+    <meta name="description" content="1. 接口调入 key申请：https:&#x2F;&#x2F;platform.deepseek.com&#x2F;usage  使用手册：https:&#x2F;&#x2F;api-docs.deepseek.com&#x2F;zh-cn&#x2F;      PARAM VALUE    base_url https:&#x2F;&#x2F;api.deepseek.com   api_key apply for an API key   * deepseek-chat 模型已全">
+<meta property="og:type" content="article">
 <meta property="og:title" content="20.DeepSeek专题之大模型API实战">
 <meta property="og:url" content="http://example.com/2025/04/25/20.DeepSeek%E4%B8%93%E9%A2%98%E4%B9%8B%E5%A4%A7%E6%A8%A1%E5%9E%8BAPI%E5%AE%9E%E6%88%98/index.html">
 <meta property="og:site_name" content="cozy">
+<meta property="og:description" content="1. 接口调入 key申请：https:&#x2F;&#x2F;platform.deepseek.com&#x2F;usage  使用手册：https:&#x2F;&#x2F;api-docs.deepseek.com&#x2F;zh-cn&#x2F;      PARAM VALUE    base_url https:&#x2F;&#x2F;api.deepseek.com   api_key apply for an API key   * deepseek-chat 模型已全">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/20.DeepSeek%E4%B8%93%E9%A2%98%E4%B9%8B%E5%A4%A7%E6%A8%A1%E5%9E%8BAPI%E5%AE%9E%E6%88%98/deepseek_r1_multiround_example_cn.png">
 <meta property="article:published_time" content="2025-04-25T10:58:04.073Z">
-<meta property="article:modified_time" content="2025-04-25T10:58:39.836Z">
+<meta property="article:modified_time" content="2025-04-25T11:50:26.745Z">
 <meta property="article:author" content="cozy">
 <meta property="article:tag" content="工作">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/20.DeepSeek%E4%B8%93%E9%A2%98%E4%B9%8B%E5%A4%A7%E6%A8%A1%E5%9E%8BAPI%E5%AE%9E%E6%88%98/deepseek_r1_multiround_example_cn.png">
     
     
       
@@ -84,6 +88,8 @@
     <span id="actions">
       <ul>
         
+        <li><a class="icon" aria-label="上一篇" href="/2025/04/25/21.DeepSeek%E4%B8%93%E9%A2%98%E4%B9%8B%E7%BB%9F%E4%B8%80%E5%A4%9A%E6%A8%A1%E6%80%81%E6%A8%A1%E5%9E%8B/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
         
         <li><a class="icon" aria-label="下一篇" href="/2025/04/25/19.RAG%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E9%AB%98%E6%80%A7%E8%83%BDRAG%E5%95%86%E4%B8%9A%E9%A1%B9%E7%9B%AE/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
@@ -113,6 +119,10 @@
 
     </div>
     
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E6%8E%A5%E5%8F%A3%E8%B0%83%E5%85%A5"><span class="toc-number">1.</span> <span class="toc-text">1. 接口调入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Temperature-%E8%AE%BE%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">2. Temperature 设置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E6%8E%A8%E7%90%86%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.</span> <span class="toc-text">3. 推理模型</span></a></li></ol>
+      </div>
     
   </span>
 </div>
@@ -161,7 +171,84 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    
+    <h1 id="1-接口调入"><a href="#1-接口调入" class="headerlink" title="1. 接口调入"></a>1. 接口调入</h1><ul>
+<li><p>key申请：<a target="_blank" rel="noopener" href="https://platform.deepseek.com/usage">https://platform.deepseek.com/usage</a></p>
+</li>
+<li><p>使用手册：<a target="_blank" rel="noopener" href="https://api-docs.deepseek.com/zh-cn/">https://api-docs.deepseek.com/zh-cn/</a></p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>PARAM</th>
+<th>VALUE</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>base_url</td>
+<td><code>https://api.deepseek.com</code></td>
+</tr>
+<tr>
+<td>api_key</td>
+<td>apply for an <a target="_blank" rel="noopener" href="https://platform.deepseek.com/api_keys">API key</a></td>
+</tr>
+</tbody></table>
+<p>* <strong><code>deepseek-chat</code> 模型已全面升级为 DeepSeek-V3，接口不变。</strong> 通过指定 <code>model=&#39;deepseek-chat&#39;</code> 即可调用 DeepSeek-V3。</p>
+<p>* <strong><code>deepseek-reasoner</code> 是 DeepSeek 最新推出的<a target="_blank" rel="noopener" href="https://api-docs.deepseek.com/zh-cn/guides/reasoning_model">推理模型</a> DeepSeek-R1</strong>。通过指定 <code>model=&#39;deepseek-reasoner&#39;</code>，即可调用 DeepSeek-R1。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Please install OpenAI SDK first: `pip3 install openai`</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> openai <span class="keyword">import</span> OpenAI</span><br><span class="line"></span><br><span class="line">client = OpenAI(api_key=<span class="string">&quot;&lt;DeepSeek API Key&gt;&quot;</span>, base_url=<span class="string">&quot;https://api.deepseek.com&quot;</span>)</span><br><span class="line"></span><br><span class="line">response = client.chat.completions.create(</span><br><span class="line">    model=<span class="string">&quot;deepseek-chat&quot;</span>,</span><br><span class="line">    messages=[</span><br><span class="line">        &#123;<span class="string">&quot;role&quot;</span>: <span class="string">&quot;system&quot;</span>, <span class="string">&quot;content&quot;</span>: <span class="string">&quot;You are a helpful assistant&quot;</span>&#125;,</span><br><span class="line">        &#123;<span class="string">&quot;role&quot;</span>: <span class="string">&quot;user&quot;</span>, <span class="string">&quot;content&quot;</span>: <span class="string">&quot;Hello&quot;</span>&#125;,</span><br><span class="line">    ],</span><br><span class="line">    stream=<span class="literal">False</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(response.choices[<span class="number">0</span>].message.content)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>样例为非流式输出，您可以将 stream 设置为 true 来使用流式输出。</p>
+</blockquote>
+<h1 id="2-Temperature-设置"><a href="#2-Temperature-设置" class="headerlink" title="2. Temperature 设置"></a>2. Temperature 设置</h1><p><code>temperature</code> 参数默认为 1.0。</p>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>温度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>代码生成&#x2F;数学解题</td>
+<td>0.0</td>
+</tr>
+<tr>
+<td>数据抽取&#x2F;分析</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>通用对话</td>
+<td>1.3</td>
+</tr>
+<tr>
+<td>翻译</td>
+<td>1.3</td>
+</tr>
+<tr>
+<td>创意类写作&#x2F;诗歌创作</td>
+<td>1.5</td>
+</tr>
+</tbody></table>
+<h1 id="3-推理模型"><a href="#3-推理模型" class="headerlink" title="3. 推理模型"></a>3. 推理模型</h1><ul>
+<li><strong>输入参数</strong>：<ul>
+<li><code>max_tokens</code>：最终回答的最大长度（不含思维链输出），默认为 4K，最大为 8K。请注意，思维链的输出最多可以达到 32K tokens。</li>
+</ul>
+</li>
+<li><strong>输出字段</strong>：<ul>
+<li><code>reasoning_content</code>：思维链内容，与 <code>content</code> 同级</li>
+<li><code>content</code>：最终回答内容</li>
+</ul>
+</li>
+<li><strong>上下文长度</strong>：API 最大支持 64K 上下文，输出的 <code>reasoning_content</code> 长度不计入 64K 上下文长度中</li>
+<li><strong>支持的功能</strong>：<a target="_blank" rel="noopener" href="https://api-docs.deepseek.com/zh-cn/api/create-chat-completion">对话补全</a>，<a target="_blank" rel="noopener" href="https://api-docs.deepseek.com/zh-cn/guides/chat_prefix_completion">对话前缀续写 (Beta)</a></li>
+<li><strong>不支持的功能</strong>：Function Call、Json Output、FIM 补全 (Beta)</li>
+<li><strong>不支持的参数</strong>：<code>temperature</code>、<code>top_p</code>、<code>presence_penalty</code>、<code>frequency_penalty</code>、<code>logprobs</code>、<code>top_logprobs</code>。请注意，为了兼容已有软件，设置 <code>temperature</code>、<code>top_p</code>、<code>presence_penalty</code>、<code>frequency_penalty</code> 参数不会报错，但也不会生效。设置 <code>logprobs</code>、<code>top_logprobs</code> 会报错。</li>
+</ul>
+<p>在每一轮对话过程中，模型会输出思维链内容（<code>reasoning_content</code>）和最终回答（<code>content</code>）。在下一轮对话中，之前轮输出的思维链内容不会被拼接到上下文中，如下图所示：</p>
+<p><img src="/images/20.DeepSeek%E4%B8%93%E9%A2%98%E4%B9%8B%E5%A4%A7%E6%A8%A1%E5%9E%8BAPI%E5%AE%9E%E6%88%98/deepseek_r1_multiround_example_cn.png" alt="img"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> openai <span class="keyword">import</span> OpenAI</span><br><span class="line">client = OpenAI(api_key=<span class="string">&quot;&lt;DeepSeek API Key&gt;&quot;</span>, base_url=<span class="string">&quot;https://api.deepseek.com&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Round 1</span></span><br><span class="line">messages = [&#123;<span class="string">&quot;role&quot;</span>: <span class="string">&quot;user&quot;</span>, <span class="string">&quot;content&quot;</span>: <span class="string">&quot;9.11 and 9.8, which is greater?&quot;</span>&#125;]</span><br><span class="line">response = client.chat.completions.create(</span><br><span class="line">    model=<span class="string">&quot;deepseek-reasoner&quot;</span>,</span><br><span class="line">    messages=messages</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">reasoning_content = response.choices[<span class="number">0</span>].message.reasoning_content</span><br><span class="line">content = response.choices[<span class="number">0</span>].message.content</span><br><span class="line"></span><br><span class="line"><span class="comment"># Round 2</span></span><br><span class="line">messages.append(&#123;<span class="string">&#x27;role&#x27;</span>: <span class="string">&#x27;assistant&#x27;</span>, <span class="string">&#x27;content&#x27;</span>: content&#125;)</span><br><span class="line">messages.append(&#123;<span class="string">&#x27;role&#x27;</span>: <span class="string">&#x27;user&#x27;</span>, <span class="string">&#x27;content&#x27;</span>: <span class="string">&quot;How many Rs are there in the word &#x27;strawberry&#x27;?&quot;</span>&#125;)</span><br><span class="line">response = client.chat.completions.create(</span><br><span class="line">    model=<span class="string">&quot;deepseek-reasoner&quot;</span>,</span><br><span class="line">    messages=messages</span><br><span class="line">)</span><br><span class="line"><span class="comment"># ...</span></span><br></pre></td></tr></table></figure>
+
+
   </div>
 </article>
 
@@ -191,6 +278,10 @@
 
     
     
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E6%8E%A5%E5%8F%A3%E8%B0%83%E5%85%A5"><span class="toc-number">1.</span> <span class="toc-text">1. 接口调入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Temperature-%E8%AE%BE%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">2. Temperature 设置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E6%8E%A8%E7%90%86%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.</span> <span class="toc-text">3. 推理模型</span></a></li></ol>
+      </div>
+    
 
     <div id="share-footer" style="display: none">
       <ul>
@@ -211,6 +302,8 @@
 
     <div id="actions-footer">
         <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
         
         <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
         <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
